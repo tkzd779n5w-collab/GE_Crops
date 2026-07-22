@@ -5,6 +5,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
+// Leaflet can measure a 0x0 container if it initializes before the CDN
+// leaflet.css has finished applying, which breaks all pan/zoom math.
+window.addEventListener('load', () => map.invalidateSize());
+
 const markerIcon = L.divIcon({
   className: 'ge-marker',
   html: '<span></span>',
