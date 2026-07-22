@@ -1,0 +1,349 @@
+{
+  "meta": {
+    "version": "0.4",
+    "last_updated": "2026-07-08",
+    "licence": "CC-BY-4.0",
+    "inclusion_criteria": "Crops developed using site-directed nucleases (ZFN/TALEN/CRISPR), oligo-directed mutagenesis, or editing-derived cisgenesis, regardless of whether a transgene remains in the final line. Classical transgenic GM crops (random insertion by e.g. Agrobacterium or biolistics, with no site-directed nuclease) are excluded. NOTE: inclusion is decided on METHOD; the resulting product's transgene status is recorded separately in edit.transgene_status because it is of interest to users.",
+    "scope_note": "Focus is on authorisation/clearance to cultivate or commercialise in the country where the crop is grown. Import- and food/feed-only authorisations are excluded. In the United States most editions receive a 'non-regulated' determination rather than an affirmative approval; this is captured in each approval's 'mechanism' field.",
+    "field_definitions": {
+      "edit.transgene_status": "transgene_free | contains_transgene | null_segregant | unknown. Records the OUTCOME of the final line, independent of the editing method used.",
+      "approvals.approval_type": "commercial | research | field_trial",
+      "approvals.mechanism": "affirmative_approval | non_regulated_determination | exemption | notification | unknown. How the clearance was granted. Distinguishing these matters for honest counting/mapping: an affirmative authorisation (e.g. Brazil CTNBio), a case-by-case determination of non-regulation (e.g. US APHIS 'Am I Regulated?'), an exemption, and a mandatory notification-that-deems-non-GMO (e.g. Japan MHLW/MAFF) are legally different events.",
+      "approvals.decision_date": "Date or year of the government regulatory determination/clearance. LEFT BLANK where the exact date cannot be confirmed from a reliable source.",
+      "approvals.commercial_status": "marketed | early_commercialisation | approved_not_marketed | withdrawn | unknown. The market reality in THIS country.",
+      "approvals.commercial_since": "Year (or date) the crop was first grown/marketed in THIS country. Blank if not yet on-market or unknown.",
+      "approvals.source_type / decision_source_type": "primary_regulatory | gain_report | bch | developer | news",
+      "coverage_notes": "Top-level array recording jurisdictions searched that yielded NO qualifying crop records, so that a confirmed absence is distinguishable from an unsearched country. framework_stance summarises the regulatory posture (permissive | case_by_case_permissive | export_only | restrictive | moratorium_with_emerging_carveout | constitutional_constraint_with_carveout | prohibition).",
+      "location": "Added for mapping purposes (not in the original source dataset). Approximate coordinates of the developer's headquarters/origin city, used to place a single point marker per innovation. Not the precise field/cultivation site."
+    }
+  },
+  "innovations": [
+    {
+      "id": "calyxt-high-oleic-soybean-us",
+      "innovation_name": "High-oleic soybean (Calyno oil)",
+      "location": { "lat": 45.0061, "lng": -93.1566, "place": "Roseville, Minnesota, US (approximate — developer HQ)" },
+      "crop": {
+        "common_name": "Soybean",
+        "species": "Glycine max"
+      },
+      "trait": {
+        "description": "Elevated oleic acid (~80%) with reduced saturated and trans fat, yielding a more stable, trans-fat-free cooking oil.",
+        "category": "oil_composition"
+      },
+      "edit": {
+        "technique": "TALEN",
+        "sdn_class": "SDN-1",
+        "transgene_status": "transgene_free",
+        "transgene_status_source": "https://www.fda.gov/media/120708/download"
+      },
+      "developer": {
+        "name": "Calyxt, Inc. (later merged into Cibus, 2023)",
+        "country": "United States",
+        "country_iso": "US",
+        "type": "company"
+      },
+      "approvals": [
+        {
+          "country": "United States",
+          "country_iso": "US",
+          "regulatory_body": "USDA-APHIS; FDA (voluntary consultation, BNF 000164)",
+          "approval_type": "commercial",
+          "mechanism": "non_regulated_determination",
+          "decision_date": "",
+          "decision_source_url": "https://www.fda.gov/media/120708/download",
+          "decision_source_type": "primary_regulatory",
+          "commercial_status": "marketed",
+          "commercial_since": "2019",
+          "commercial_source_url": "https://www.growroseville.com/roseville-mn-news/p/item/28057/calyxt-focuses-on-healthy-more-sustainable-products",
+          "last_verified": "2026-07-08",
+          "notes": "First gene-edited food commercialised in the US (Calyno oil, launched 2019; FAD2-1A/1B knockout). APHIS 'Am I Regulated?' non-regulated determination was issued for the original high-oleic soybean (Calyxt's lead product, predating its Feb-2016 powdery-mildew-wheat letter) but the EXACT DATE is not confirmed from a reliable source, so decision_date is intentionally left blank. Do NOT confuse with Calyxt's separate high-oleic/low-linolenic (HOLL) soybean, which was deemed non-regulated on 2020-06-03 but never commercialised. FDA voluntary consultation completed (BNF 000164)."
+        }
+      ]
+    },
+    {
+      "id": "pairwise-conscious-greens-mustard-us",
+      "innovation_name": "Conscious Greens (purple mustard greens)",
+      "location": { "lat": 35.9940, "lng": -78.8986, "place": "Durham, North Carolina, US (approximate — developer HQ)" },
+      "crop": {
+        "common_name": "Mustard greens",
+        "species": "Brassica juncea"
+      },
+      "trait": {
+        "description": "Reduced pungency/bitterness for palatability while retaining the nutritional profile of mustard greens (marketed as 'Purple Power Baby Greens').",
+        "category": "consumer_quality"
+      },
+      "edit": {
+        "technique": "CRISPR-Cas9",
+        "sdn_class": "SDN-1",
+        "transgene_status": "transgene_free",
+        "transgene_status_source": "https://www.pairwise.com/news/pairwise-publishes-the-science-behind-its-first-product"
+      },
+      "developer": {
+        "name": "Pairwise",
+        "country": "United States",
+        "country_iso": "US",
+        "type": "company"
+      },
+      "approvals": [
+        {
+          "country": "United States",
+          "country_iso": "US",
+          "regulatory_body": "USDA-APHIS",
+          "approval_type": "commercial",
+          "mechanism": "non_regulated_determination",
+          "decision_date": "2020-08",
+          "decision_source_url": "https://thespoon.tech/pairwise-gets-greenlight-from-usda-for-crispr-engineered-mustard-greens/",
+          "decision_source_type": "news",
+          "commercial_status": "marketed",
+          "commercial_since": "2023",
+          "commercial_source_url": "https://www.fooddive.com/news/crispr-pairwise-conscious-greens-gmo-foodservice/650326/",
+          "last_verified": "2026-07-08",
+          "notes": "First CRISPR-edited food product on the US market. USDA/APHIS confirmed non-regulated status mid-August 2020; foodservice launch May 2023, retail rollout later in 2023. Exact APHIS letter date to be confirmed against the primary APHIS response."
+        }
+      ]
+    },
+    {
+      "id": "covercress-pennycress-us",
+      "innovation_name": "CoverCress (improved field pennycress)",
+      "location": { "lat": 38.6270, "lng": -90.1994, "place": "St. Louis, Missouri, US (approximate — developer HQ)" },
+      "crop": {
+        "common_name": "Field pennycress",
+        "species": "Thlaspi arvense"
+      },
+      "trait": {
+        "description": "Reduced erucic acid (from >35% to <2%) and reduced seed fibre/shatter, domesticating pennycress as a winter oilseed cover crop for food/feed and biofuel feedstock.",
+        "category": "oil_composition"
+      },
+      "edit": {
+        "technique": "CRISPR",
+        "sdn_class": "SDN-1",
+        "transgene_status": "unknown",
+        "transgene_status_source": ""
+      },
+      "developer": {
+        "name": "CoverCress Inc. (Bayer / Bunge / Chevron-backed)",
+        "country": "United States",
+        "country_iso": "US",
+        "type": "company"
+      },
+      "approvals": [
+        {
+          "country": "United States",
+          "country_iso": "US",
+          "regulatory_body": "USDA-APHIS",
+          "approval_type": "commercial",
+          "mechanism": "non_regulated_determination",
+          "decision_date": "",
+          "decision_source_url": "https://innovativegenomics.org/news/crispr-in-agriculture-2024/",
+          "decision_source_type": "news",
+          "commercial_status": "early_commercialisation",
+          "commercial_since": "2023",
+          "commercial_source_url": "https://innovativegenomics.org/news/crispr-in-agriculture-2024/",
+          "last_verified": "2026-07-08",
+          "notes": "Deregulated by USDA; first commercialisation efforts began 2023. Combines CRISPR edits with conventional breeding. Exact APHIS determination date and the transgene status of the marketed line still TO CONFIRM against primary sources."
+        }
+      ]
+    },
+    {
+      "id": "sanatech-high-gaba-tomato-jp",
+      "innovation_name": "Sicilian Rouge High GABA tomato",
+      "location": { "lat": 36.0839, "lng": 140.0764, "place": "Tsukuba, Japan (approximate — developer HQ / university spin-out origin)" },
+      "crop": {
+        "common_name": "Tomato",
+        "species": "Solanum lycopersicum"
+      },
+      "trait": {
+        "description": "Elevated GABA (gamma-aminobutyric acid), 4-6x conventional levels, via knockout of the autoinhibitory domain of glutamate decarboxylase (GAD). Marketed with functional-food claims (blood pressure/relaxation).",
+        "category": "nutritional_quality"
+      },
+      "edit": {
+        "technique": "CRISPR-Cas9",
+        "sdn_class": "SDN-1",
+        "transgene_status": "transgene_free",
+        "transgene_status_source": "https://sanatech-seed.com/en/20201211-1-2/"
+      },
+      "developer": {
+        "name": "Sanatech Seed Co., Ltd. (University of Tsukuba spin-out; sales via Pioneer EcoScience)",
+        "country": "Japan",
+        "country_iso": "JP",
+        "type": "company"
+      },
+      "approvals": [
+        {
+          "country": "Japan",
+          "country_iso": "JP",
+          "regulatory_body": "MHLW (health) + MAFF (biodiversity/feed)",
+          "approval_type": "commercial",
+          "mechanism": "notification",
+          "decision_date": "2020-12-11",
+          "decision_source_url": "https://sanatech-seed.com/en/20201211-2-2/",
+          "decision_source_type": "primary_regulatory",
+          "commercial_status": "marketed",
+          "commercial_since": "2021",
+          "commercial_source_url": "https://sanatech-seed.com/en/20210915-2/",
+          "last_verified": "2026-07-08",
+          "notes": "World's first commercialised genome-edited food crop. Under Japan's 2019 guidelines, SDN-1 products with no foreign DNA are not treated as GMOs but require notification to MHLW and an information filing with MAFF; notification accepted 11 Dec 2020. Seedlings distributed to home gardeners May 2021; fruit commercial sales from 15 Sept 2021. Later certified a Food with Functional Claims by the Consumer Affairs Agency on 30 Nov 2022 (Notification H617). Sold only in Japan. NOTE: two genome-edited fish (red sea bream; tiger puffer - Regional Fish Institute) are also marketed in Japan but are excluded from this CROP catalogue."
+        }
+      ]
+    }
+  ],
+  "coverage_notes": [
+    {
+      "country": "Australia",
+      "country_iso": "AU",
+      "status": "no_qualifying_records",
+      "framework_stance": "permissive",
+      "as_of": "2026-07-08",
+      "key_instrument": "Gene Technology Regulations 2001 (amended Oct 2019); FSANZ GM-food definition narrowed June 2025",
+      "explanation": "SDN-1 editions are not regulated as GMOs and FSANZ excludes transgene-free SDN-1 from GM-food classification, yet no gene-edited crops are commercially cultivated in Australia as of 2025 (field trials only). Confirmed de facto absence under a permissive framework.",
+      "sources": [
+        "https://www.tandfonline.com/doi/full/10.1080/10383441.2025.2549202",
+        "https://crispr-gene-editing-regs-tracker.geneticliteracyproject.org/australia-crops-food/"
+      ]
+    },
+    {
+      "country": "New Zealand",
+      "country_iso": "NZ",
+      "status": "no_qualifying_records",
+      "framework_stance": "restrictive",
+      "as_of": "2026-07-08",
+      "key_instrument": "HSNO Act 1996; Gene Technology Bill 2024 (in passage)",
+      "explanation": "All gene-editing techniques treated as genetic modification and tightly regulated by the EPA - a de facto ~30-year barrier. No GE crops grown commercially and no environmental-release applications filed. Liberalising Gene Technology Bill 2024 reported back by Select Committee 10 Oct 2025, second reading pending - status evolving, reconfirm before publication.",
+      "sources": [
+        "https://crispr-gene-editing-regs-tracker.geneticliteracyproject.org/new-zealand-crops-food/",
+        "https://www.mbie.govt.nz/science-and-technology/science-and-innovation/agencies-policies-and-budget-initiatives/gene-technology-regulation"
+      ]
+    },
+    {
+      "country": "Argentina",
+      "country_iso": "AR",
+      "status": "no_qualifying_records",
+      "framework_stance": "case_by_case_permissive",
+      "as_of": "2026-07-08",
+      "key_instrument": "Resolution 173/2015 (the 'Argentina model'); CONABIA case-by-case determinations",
+      "explanation": "World's first NBT framework and regional model. CONABIA has issued numerous 'non-GMO' determinations (e.g. Neocrop high-fibre/amylose wheat, Sept 2025), but a non-GMO determination is a regulatory classification, not evidence of commercial cultivation - most determined products are advanced lines still heading to the field. No gene-edited crop confirmed as commercially cultivated as of the search date. NOTE: Argentina's flagship 'GM wheat' HB4 is TRANSGENIC (inserted sunflower HaHB4 gene) and is therefore out of scope; it should not be recorded as a gene-edited crop.",
+      "sources": [
+        "https://crispr-gene-editing-regs-tracker.geneticliteracyproject.org/argentina-crops-food/",
+        "https://neocroptech.com/en/neocrop-obtains-green-light-for-the-first-crispr-edited-wheat-in-argentina/",
+        "https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2023.1209308/full"
+      ]
+    },
+    {
+      "country": "Brazil",
+      "country_iso": "BR",
+      "status": "no_qualifying_records",
+      "framework_stance": "case_by_case_permissive",
+      "as_of": "2026-07-08",
+      "key_instrument": "CTNBio Normative Resolution 16 (RN16), 2018 (TIMPs consultation procedure)",
+      "explanation": "Extensive pipeline of CTNBio 'non-GMO/conventional' determinations under RN16 (e.g. Embrapa drought-tolerant and lectin-free soybeans; Cana Flex CRISPR sugarcane; FuturaGene gene-edited eucalyptus classified conventional Feb 2026, proceeding via field trials). Analyses cite a ~2-3 year lag from determination to market. No gene-edited crop confirmed as commercially cultivated as of the search date. CORRECTION FLAG: the widely-cited 'December 2024 MARA five biosafety certificates including the first gene-edited rice for domestic cultivation' is CHINA (MARA = China's Ministry of Agriculture and Rural Affairs, 31 Dec 2024), NOT Brazil - do not attribute this event to Brazil.",
+      "sources": [
+        "https://crispr-gene-editing-regs-tracker.geneticliteracyproject.org/brazil-crops-food/",
+        "https://www.gmwatch.org/en/106-news/latest-news/20203-experimental-soybean-gene-edited-for-drought-tolerance-is-approved-by-brazil-s-gmo-regulator",
+        "https://www.isaaa.org/kc/cropbiotechupdate/article/default.asp?ID=21147"
+      ]
+    },
+    {
+      "country": "Chile",
+      "country_iso": "CL",
+      "status": "no_qualifying_records",
+      "framework_stance": "export_only",
+      "as_of": "2026-07-08",
+      "key_instrument": "SAG Resolution No. 1523/2001; 2017 NBT case-by-case approach",
+      "explanation": "SAG treats edits with no 'new combination of genetic material' as non-GMO on a case-by-case basis, but Chile's model is structurally export-oriented: environmental release of GE seed is permitted only for seed multiplication that is re-exported, not for domestic commercial cultivation. Chile is a major GE seed exporter (5th largest seed producer globally) but grows no gene-edited crop for domestic commercial use. Zero qualifying records by design.",
+      "sources": [
+        "https://crispr-gene-editing-regs-tracker.geneticliteracyproject.org/chile-crops-food/",
+        "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2021.630396/full"
+      ]
+    },
+    {
+      "country": "Colombia",
+      "country_iso": "CO",
+      "status": "no_qualifying_records",
+      "framework_stance": "case_by_case_permissive",
+      "as_of": "2026-07-08",
+      "key_instrument": "ICA Resolution 29299/2018, superseded/broadened by ICA Resolution 00022991 (11 Nov 2022)",
+      "explanation": "Case-by-case procedure; only products with stable foreign genetic material are classified as LMOs, transgene-free edits handled as conventional. Framework resembles the Argentine text. No gene-edited crop confirmed as commercially cultivated as of the search date.",
+      "sources": [
+        "https://crispr-gene-editing-regs-tracker.geneticliteracyproject.org/argentina-crops-food/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8316157/"
+      ]
+    },
+    {
+      "country": "Paraguay",
+      "country_iso": "PY",
+      "status": "no_qualifying_records",
+      "framework_stance": "case_by_case_permissive",
+      "as_of": "2026-07-08",
+      "key_instrument": "2019 framework (Resolution of CONBIO; commonly cited as Res. 565/019, sometimes 842/2019)",
+      "explanation": "Case-by-case procedure exempting transgene-free edits from GMO regulation, in the Argentine mould. Instrument number is cited inconsistently across sources and should be confirmed against the primary Paraguayan resolution. No gene-edited crop confirmed as commercially cultivated as of the search date.",
+      "sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8316157/",
+        "https://cropgeregulations.com/locations/south-america/"
+      ]
+    },
+    {
+      "country": "Uruguay",
+      "country_iso": "UY",
+      "status": "no_qualifying_records",
+      "framework_stance": "case_by_case_permissive",
+      "as_of": "2026-07-08",
+      "key_instrument": "Gene Editing Decree No. 84/024, announced 18 March 2024",
+      "explanation": "Most recent South American entrant to formalise an NBT/gene-editing framework (2024). Framework new; no gene-edited crop confirmed as commercially cultivated as of the search date.",
+      "sources": [
+        "https://www.nature.com/articles/s44383-025-00016-2",
+        "https://cropgeregulations.com/locations/south-america/"
+      ]
+    },
+    {
+      "country": "Ecuador",
+      "country_iso": "EC",
+      "status": "no_qualifying_records",
+      "framework_stance": "constitutional_constraint_with_carveout",
+      "as_of": "2026-07-08",
+      "key_instrument": "Constitution Art. 401 (GMO-free country, 2008); Organic Code of the Environment 2019; Ministerial Agreement No. 063 (precision-breeding technical guide)",
+      "explanation": "Constitution declares Ecuador GMO-free, creating a structural ceiling. Sub-constitutional instruments exempt transgene-free edited products by defining only recombinant/foreign-DNA organisms as GMOs. First application under this route submitted Oct 2024 (gene-edited banana for Fusarium wilt TR4 resistance) - application stage, not commercial cultivation. The 'Ecuador banana paradox': exemption rests on definitional exclusion rather than legislative authorisation.",
+      "sources": [
+        "https://cropgeregulations.com/locations/south-america/",
+        "https://link.springer.com/chapter/10.1007/978-3-031-08072-2_17"
+      ]
+    },
+    {
+      "country": "Peru",
+      "country_iso": "PE",
+      "status": "no_qualifying_records",
+      "framework_stance": "moratorium_with_emerging_carveout",
+      "as_of": "2026-07-08",
+      "key_instrument": "Law 29811 (2011) LMO moratorium, extended by Law 31111 to 31 Dec 2035; Ministerial Resolution D000068-2026-MINAM-DM (8 Mar 2026)",
+      "explanation": "Peru maintains a moratorium on the entry/production of Living Modified Organisms until end-2035. A March 2026 MINAM resolution establishes criteria to determine whether NBT/gene-edited products fall within the moratorium as LMOs; transgene-free edits not meeting the LMO definition may be treated as conventional. De jure moratorium with an emerging carve-out; no commercial cultivation of gene-edited crops.",
+      "sources": [
+        "https://cropgeregulations.com/locations/south-america/",
+        "https://www.nature.com/articles/s44383-025-00016-2"
+      ]
+    },
+    {
+      "country": "Bolivia",
+      "country_iso": "BO",
+      "status": "no_qualifying_records",
+      "framework_stance": "restrictive",
+      "as_of": "2026-07-08",
+      "key_instrument": "Supreme Decree No. 24,676 (1997)",
+      "explanation": "GMO activity is heavily restricted and politically contested; GM soybean is the only transgenic crop commercially cultivated, and there is no operative framework enabling commercial cultivation of gene-edited crops (some sources characterise Bolivia's stance as an effective ban). No gene-edited crop commercially cultivated.",
+      "sources": [
+        "https://plantae.org/global-differences-in-regulation-of-genetically-modified-crops-the-history-and-where-we-are-going/",
+        "https://tci.cornell.edu/?blog=can-gene-edited-crops-revolutionize-agriculture-in-developing-countries"
+      ]
+    },
+    {
+      "country": "Venezuela",
+      "country_iso": "VE",
+      "status": "no_qualifying_records",
+      "framework_stance": "prohibition",
+      "as_of": "2026-07-08",
+      "key_instrument": "Prohibition on environmental release of GMOs (biodiversity-conservation grounds)",
+      "explanation": "Environmental release of GMOs is prohibited; the country relies on GM food/feed imports from neighbours. No enabling framework for, or commercial cultivation of, gene-edited crops.",
+      "sources": [
+        "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2021.630396/full"
+      ]
+    }
+  ]
+}
