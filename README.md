@@ -2,7 +2,7 @@
 
 Interactive point map of commercially approved gene-edited crops (CRISPR/TALEN/SDN-1), one marker per innovation. Hover a marker to see its full record. Inspired by [EJAtlas](https://ejatlas.org/).
 
-Live demo: _add your GitHub Pages link here after first deploy_
+Live demo: https://tkzd779n5w-collab.github.io/GE_Crops/
 
 ## Data
 
