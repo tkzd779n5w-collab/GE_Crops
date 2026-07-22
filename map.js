@@ -85,6 +85,15 @@ function popupHtml(innovation) {
     </div>`;
 }
 
+let pinnedMarker = null;
+
+map.on('click', () => {
+  if (pinnedMarker) {
+    pinnedMarker.closePopup();
+    pinnedMarker = null;
+  }
+});
+
 fetch('data/ge-crops.json')
   .then((r) => r.json())
   .then((data) => {
@@ -97,10 +106,23 @@ fetch('data/ge-crops.json')
       marker.bindPopup(popupHtml(innovation), { maxWidth: 340, className: 'ge-popup', autoPan: false });
 
       marker.on('mouseover', function () {
+        if (pinnedMarker) return;
         this.openPopup();
       });
       marker.on('mouseout', function () {
+        if (pinnedMarker === this) return;
         this.closePopup();
+      });
+      marker.on('click', function (e) {
+        L.DomEvent.stopPropagation(e);
+        if (pinnedMarker && pinnedMarker !== this) {
+          pinnedMarker.closePopup();
+        }
+        pinnedMarker = this;
+        this.openPopup();
+      });
+      marker.on('popupclose', function () {
+        if (pinnedMarker === this) pinnedMarker = null;
       });
     });
   })
