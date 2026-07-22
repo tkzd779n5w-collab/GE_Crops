@@ -137,6 +137,49 @@ footer a {
   flex: 0 0 auto;
 }
 
+.legend-title {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+/* Filter control */
+.filter-control {
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.filter-title {
+  font-weight: 600;
+  padding: 0 0.2rem;
+}
+
+.filter-btn {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--ink);
+  border-radius: 4px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  background: #f2f2f0;
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
 /* Detail content (reused inside the side panel) */
 .popup h2 {
   margin: 0 0 0.5rem;

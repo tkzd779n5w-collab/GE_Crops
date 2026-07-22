@@ -12,21 +12,36 @@ map.invalidateSize();
 requestAnimationFrame(() => map.invalidateSize());
 window.addEventListener('load', () => map.invalidateSize());
 
-const TECHNIQUE_COLORS = {
-  TALEN: '#c0392b',
-  CRISPR: '#2e7d32'
+const DEFAULT_COLOR = '#888888';
+
+// Each scheme picks a value off an innovation and buckets it into coloured
+// groups. Anything that doesn't match a group's test falls back to
+// DEFAULT_COLOR / "Other".
+const COLOR_SCHEMES = {
+  technique: {
+    label: 'Technique',
+    getValue: (innovation) => innovation.edit.technique,
+    groups: [
+      { label: 'TALEN', color: '#c0392b', test: (v) => /TALEN/i.test(v || '') },
+      { label: 'CRISPR / CRISPR-Cas9', color: '#2e7d32', test: (v) => /CRISPR/i.test(v || '') }
+    ]
+  },
+  commercial_status: {
+    label: 'Commercial status',
+    getValue: (innovation) => (innovation.approvals || []).map((a) => a.commercial_status),
+    groups: [
+      { label: 'Marketed', color: '#2e7d32', test: (v) => v.includes('marketed') },
+      { label: 'Early commercialisation', color: '#f39c12', test: (v) => v.includes('early_commercialisation') },
+      { label: 'Approved, not marketed', color: '#2980b9', test: (v) => v.includes('approved_not_marketed') },
+      { label: 'Withdrawn', color: '#7f8c8d', test: (v) => v.includes('withdrawn') }
+    ]
+  }
 };
-const DEFAULT_TECHNIQUE_COLOR = '#888888';
 
-function techniqueGroup(technique) {
-  const t = (technique || '').toUpperCase();
-  if (t.includes('TALEN')) return 'TALEN';
-  if (t.includes('CRISPR')) return 'CRISPR';
-  return null;
-}
-
-function techniqueColor(technique) {
-  return TECHNIQUE_COLORS[techniqueGroup(technique)] || DEFAULT_TECHNIQUE_COLOR;
+function colorForScheme(scheme, innovation) {
+  const value = scheme.getValue(innovation);
+  const group = scheme.groups.find((g) => g.test(value));
+  return group ? group.color : DEFAULT_COLOR;
 }
 
 function makeMarkerIcon(color) {
@@ -38,16 +53,53 @@ function makeMarkerIcon(color) {
   });
 }
 
+let activeSchemeKey = 'technique';
+const markersData = [];
+
 const legend = L.control({ position: 'bottomleft' });
 legend.onAdd = function () {
   const div = L.DomUtil.create('div', 'legend');
-  div.innerHTML = `
-    <div class="legend-item"><span class="swatch" style="background:${TECHNIQUE_COLORS.TALEN}"></span>TALEN</div>
-    <div class="legend-item"><span class="swatch" style="background:${TECHNIQUE_COLORS.CRISPR}"></span>CRISPR / CRISPR-Cas9</div>
-  `;
+  div.id = 'legend';
   return div;
 };
 legend.addTo(map);
+
+function updateLegend() {
+  const scheme = COLOR_SCHEMES[activeSchemeKey];
+  const usesDefault = markersData.some(({ innovation }) => !scheme.groups.some((g) => g.test(scheme.getValue(innovation))));
+  const items = scheme.groups.map((g) => `<div class="legend-item"><span class="swatch" style="background:${g.color}"></span>${escapeHtml(g.label)}</div>`);
+  if (usesDefault) {
+    items.push(`<div class="legend-item"><span class="swatch" style="background:${DEFAULT_COLOR}"></span>Other / unknown</div>`);
+  }
+  document.getElementById('legend').innerHTML = `<div class="legend-title">${escapeHtml(scheme.label)}</div>${items.join('')}`;
+}
+
+function applyScheme(schemeKey) {
+  activeSchemeKey = schemeKey;
+  const scheme = COLOR_SCHEMES[schemeKey];
+  markersData.forEach(({ marker, innovation }) => {
+    marker.setIcon(makeMarkerIcon(colorForScheme(scheme, innovation)));
+  });
+  updateLegend();
+  document.querySelectorAll('.filter-btn').forEach((btn) => {
+    btn.classList.toggle('active', btn.dataset.scheme === schemeKey);
+  });
+}
+
+const filterControl = L.control({ position: 'topright' });
+filterControl.onAdd = function () {
+  const div = L.DomUtil.create('div', 'filter-control');
+  div.innerHTML = `
+    <div class="filter-title">Colour markers by</div>
+    ${Object.entries(COLOR_SCHEMES).map(([key, s]) => `<button type="button" class="filter-btn" data-scheme="${key}">${escapeHtml(s.label)}</button>`).join('')}
+  `;
+  L.DomEvent.disableClickPropagation(div);
+  div.querySelectorAll('.filter-btn').forEach((btn) => {
+    btn.addEventListener('click', () => applyScheme(btn.dataset.scheme));
+  });
+  return div;
+};
+filterControl.addTo(map);
 
 function escapeHtml(str) {
   return String(str).replace(/[&<>"']/g, (c) => ({
@@ -138,8 +190,7 @@ fetch('data/ge-crops.json')
       const loc = innovation.location;
       if (!loc) return;
 
-      const icon = makeMarkerIcon(techniqueColor(innovation.edit.technique));
-      const marker = L.marker([loc.lat, loc.lng], { icon }).addTo(map);
+      const marker = L.marker([loc.lat, loc.lng], { icon: makeMarkerIcon(DEFAULT_COLOR) }).addTo(map);
 
       marker.bindTooltip(escapeHtml(innovation.id), {
         direction: 'top',
@@ -151,7 +202,11 @@ fetch('data/ge-crops.json')
         L.DomEvent.stopPropagation(e);
         openDetailPanel(innovation);
       });
+
+      markersData.push({ marker, innovation });
     });
+
+    applyScheme(activeSchemeKey);
   })
   .catch((err) => {
     console.error('Failed to load GE crops data', err);
