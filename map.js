@@ -83,7 +83,7 @@ function approvalBlock(a, idx, total) {
     </div>`;
 }
 
-function popupHtml(innovation) {
+function detailHtml(innovation) {
   const approvals = (innovation.approvals || [])
     .map((a, i) => approvalBlock(a, i, innovation.approvals.length))
     .join('');
@@ -115,14 +115,21 @@ function popupHtml(innovation) {
     </div>`;
 }
 
-let pinnedMarker = null;
+const detailPanel = document.getElementById('detail-panel');
+const detailContent = document.getElementById('detail-content');
+const detailClose = document.getElementById('detail-close');
 
-map.on('click', () => {
-  if (pinnedMarker) {
-    pinnedMarker.closePopup();
-    pinnedMarker = null;
-  }
-});
+function openDetailPanel(innovation) {
+  detailContent.innerHTML = detailHtml(innovation);
+  detailPanel.classList.add('open');
+}
+
+function closeDetailPanel() {
+  detailPanel.classList.remove('open');
+}
+
+detailClose.addEventListener('click', closeDetailPanel);
+map.on('click', closeDetailPanel);
 
 fetch('data/ge-crops.json')
   .then((r) => r.json())
@@ -134,26 +141,15 @@ fetch('data/ge-crops.json')
       const icon = makeMarkerIcon(techniqueColor(innovation.edit.technique));
       const marker = L.marker([loc.lat, loc.lng], { icon }).addTo(map);
 
-      marker.bindPopup(popupHtml(innovation), { maxWidth: 340, className: 'ge-popup', autoPan: false });
+      marker.bindTooltip(escapeHtml(innovation.id), {
+        direction: 'top',
+        offset: [0, -10],
+        className: 'ge-label'
+      });
 
-      marker.on('mouseover', function () {
-        if (pinnedMarker) return;
-        this.openPopup();
-      });
-      marker.on('mouseout', function () {
-        if (pinnedMarker === this) return;
-        this.closePopup();
-      });
       marker.on('click', function (e) {
         L.DomEvent.stopPropagation(e);
-        if (pinnedMarker && pinnedMarker !== this) {
-          pinnedMarker.closePopup();
-        }
-        pinnedMarker = this;
-        this.openPopup();
-      });
-      marker.on('popupclose', function () {
-        if (pinnedMarker === this) pinnedMarker = null;
+        openDetailPanel(innovation);
       });
     });
   })
