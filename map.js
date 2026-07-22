@@ -94,7 +94,7 @@ fetch('data/ge-crops.json')
 
       const marker = L.marker([loc.lat, loc.lng], { icon: markerIcon }).addTo(map);
 
-      marker.bindPopup(popupHtml(innovation), { maxWidth: 340, className: 'ge-popup' });
+      marker.bindPopup(popupHtml(innovation), { maxWidth: 340, className: 'ge-popup', autoPan: false });
 
       marker.on('mouseover', function () {
         this.openPopup();
