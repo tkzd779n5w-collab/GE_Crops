@@ -62,9 +62,34 @@ footer a {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: var(--accent);
   border: 2px solid #fff;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
+}
+
+/* Legend */
+.legend {
+  background: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legend .swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
+  flex: 0 0 auto;
 }
 
 /* Popup */

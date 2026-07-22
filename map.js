@@ -12,12 +12,42 @@ map.invalidateSize();
 requestAnimationFrame(() => map.invalidateSize());
 window.addEventListener('load', () => map.invalidateSize());
 
-const markerIcon = L.divIcon({
-  className: 'ge-marker',
-  html: '<span></span>',
-  iconSize: [16, 16],
-  iconAnchor: [8, 8]
-});
+const TECHNIQUE_COLORS = {
+  TALEN: '#c0392b',
+  CRISPR: '#2e7d32'
+};
+const DEFAULT_TECHNIQUE_COLOR = '#888888';
+
+function techniqueGroup(technique) {
+  const t = (technique || '').toUpperCase();
+  if (t.includes('TALEN')) return 'TALEN';
+  if (t.includes('CRISPR')) return 'CRISPR';
+  return null;
+}
+
+function techniqueColor(technique) {
+  return TECHNIQUE_COLORS[techniqueGroup(technique)] || DEFAULT_TECHNIQUE_COLOR;
+}
+
+function makeMarkerIcon(color) {
+  return L.divIcon({
+    className: 'ge-marker',
+    html: `<span style="background:${color}"></span>`,
+    iconSize: [16, 16],
+    iconAnchor: [8, 8]
+  });
+}
+
+const legend = L.control({ position: 'bottomleft' });
+legend.onAdd = function () {
+  const div = L.DomUtil.create('div', 'legend');
+  div.innerHTML = `
+    <div class="legend-item"><span class="swatch" style="background:${TECHNIQUE_COLORS.TALEN}"></span>TALEN</div>
+    <div class="legend-item"><span class="swatch" style="background:${TECHNIQUE_COLORS.CRISPR}"></span>CRISPR / CRISPR-Cas9</div>
+  `;
+  return div;
+};
+legend.addTo(map);
 
 function escapeHtml(str) {
   return String(str).replace(/[&<>"']/g, (c) => ({
@@ -101,7 +131,8 @@ fetch('data/ge-crops.json')
       const loc = innovation.location;
       if (!loc) return;
 
-      const marker = L.marker([loc.lat, loc.lng], { icon: markerIcon }).addTo(map);
+      const icon = makeMarkerIcon(techniqueColor(innovation.edit.technique));
+      const marker = L.marker([loc.lat, loc.lng], { icon }).addTo(map);
 
       marker.bindPopup(popupHtml(innovation), { maxWidth: 340, className: 'ge-popup', autoPan: false });
 
