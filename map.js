@@ -5,8 +5,11 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-// Leaflet can measure a 0x0 container if it initializes before the CDN
-// leaflet.css has finished applying, which breaks all pan/zoom math.
+// Leaflet's initial container measurement is unreliable across browsers/CDN
+// timing and can be cached as 0x0, which breaks all pan/zoom math. Force a
+// synchronous recheck now plus a couple of deferred rechecks as a safety net.
+map.invalidateSize();
+requestAnimationFrame(() => map.invalidateSize());
 window.addEventListener('load', () => map.invalidateSize());
 
 const markerIcon = L.divIcon({
