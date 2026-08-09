@@ -119,7 +119,7 @@ const filterControl = L.control({ position: 'topright' });
 filterControl.onAdd = function () {
   const div = L.DomUtil.create('div', 'filter-control');
   div.innerHTML = `
-    <div class="filter-title">Colour markers by</div>
+    <div class="filter-title">Categories</div>
     ${Object.entries(COLOR_SCHEMES).map(([key, s]) => `<button type="button" class="filter-btn" data-scheme="${key}">${escapeHtml(s.label)}</button>`).join('')}
   `;
   L.DomEvent.disableClickPropagation(div);
