@@ -20,6 +20,7 @@ const DEFAULT_COLOR = '#888888';
 const COLOR_SCHEMES = {
   technique: {
     label: 'Technique',
+    description: 'The gene-editing method used to create the crop — TALEN or CRISPR/CRISPR-Cas9.',
     getValue: (innovation) => innovation.edit.technique,
     groups: [
       { label: 'TALEN', color: '#c0392b', test: (v) => /TALEN/i.test(v || '') },
@@ -28,6 +29,7 @@ const COLOR_SCHEMES = {
   },
   commercial_status: {
     label: 'Commercial status',
+    description: 'How far each crop has reached the market in the countries where it is approved — marketed, early commercialisation, approved but not yet marketed, or withdrawn.',
     getValue: (innovation) => (innovation.approvals || []).map((a) => a.commercial_status),
     groups: [
       { label: 'Marketed', color: '#2e7d32', test: (v) => v.includes('marketed') },
@@ -38,6 +40,7 @@ const COLOR_SCHEMES = {
   },
   crop_type: {
     label: 'Crop type',
+    description: 'The plant species each innovation was developed from.',
     getValue: (innovation) => innovation.crop.common_name,
     groups: [
       { label: 'Soybean', color: '#a6cee3', test: (v) => v === 'Soybean' },
@@ -55,6 +58,7 @@ const COLOR_SCHEMES = {
   },
   trait_category: {
     label: 'Crop trait',
+    description: 'The type of trait the edit was designed to improve — e.g. oil composition, yield, or food safety.',
     getValue: (innovation) => innovation.trait.category,
     groups: [
       { label: 'Oil composition', color: '#66c2a5', test: (v) => v === 'oil_composition' },
@@ -103,7 +107,7 @@ function updateLegend() {
   document.getElementById('legend').innerHTML = `<div class="legend-title">${escapeHtml(scheme.label)}</div>${items.join('')}`;
 }
 
-function applyScheme(schemeKey) {
+function applyScheme(schemeKey, { showDescription = false } = {}) {
   activeSchemeKey = schemeKey;
   const scheme = COLOR_SCHEMES[schemeKey];
   markersData.forEach(({ marker, innovation }) => {
@@ -113,7 +117,20 @@ function applyScheme(schemeKey) {
   document.querySelectorAll('.filter-btn').forEach((btn) => {
     btn.classList.toggle('active', btn.dataset.scheme === schemeKey);
   });
+  if (showDescription) {
+    const descriptionEl = document.getElementById('filter-description');
+    descriptionEl.textContent = scheme.description;
+    descriptionEl.classList.add('visible');
+  }
 }
+
+const filterDescription = L.control({ position: 'topright' });
+filterDescription.onAdd = function () {
+  const div = L.DomUtil.create('div', 'filter-description');
+  div.id = 'filter-description';
+  return div;
+};
+filterDescription.addTo(map);
 
 const filterControl = L.control({ position: 'topright' });
 filterControl.onAdd = function () {
@@ -124,7 +141,7 @@ filterControl.onAdd = function () {
   `;
   L.DomEvent.disableClickPropagation(div);
   div.querySelectorAll('.filter-btn').forEach((btn) => {
-    btn.addEventListener('click', () => applyScheme(btn.dataset.scheme));
+    btn.addEventListener('click', () => applyScheme(btn.dataset.scheme, { showDescription: true }));
   });
   return div;
 };

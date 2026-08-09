@@ -183,7 +183,28 @@ footer a {
   margin-bottom: 0.2rem;
 }
 
-/* Filter control */
+/* Filter control + its description sit side by side in the top-right corner */
+.leaflet-top.leaflet-right {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.filter-description {
+  display: none;
+  background: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  font-size: 0.8rem;
+  color: var(--muted);
+  max-width: 220px;
+}
+
+.filter-description.visible {
+  display: block;
+}
+
 .filter-control {
   background: #fff;
   padding: 0.5rem;
