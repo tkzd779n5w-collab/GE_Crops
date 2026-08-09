@@ -1,7 +1,7 @@
 {
   "meta": {
-    "version": "0.4",
-    "last_updated": "2026-07-08",
+    "version": "0.5",
+    "last_updated": "2026-08-05",
     "licence": "CC-BY-4.0",
     "inclusion_criteria": "Crops developed using site-directed nucleases (ZFN/TALEN/CRISPR), oligo-directed mutagenesis, or editing-derived cisgenesis, regardless of whether a transgene remains in the final line. Classical transgenic GM crops (random insertion by e.g. Agrobacterium or biolistics, with no site-directed nuclease) are excluded. NOTE: inclusion is decided on METHOD; the resulting product's transgene status is recorded separately in edit.transgene_status because it is of interest to users.",
     "scope_note": "Focus is on authorisation/clearance to cultivate or commercialise in the country where the crop is grown. Import- and food/feed-only authorisations are excluded. In the United States most editions receive a 'non-regulated' determination rather than an affirmative approval; this is captured in each approval's 'mechanism' field.",
@@ -57,6 +57,21 @@
           "commercial_source_url": "https://www.growroseville.com/roseville-mn-news/p/item/28057/calyxt-focuses-on-healthy-more-sustainable-products",
           "last_verified": "2026-07-08",
           "notes": "First gene-edited food commercialised in the US (Calyno oil, launched 2019; FAD2-1A/1B knockout). APHIS 'Am I Regulated?' non-regulated determination was issued for the original high-oleic soybean (Calyxt's lead product, predating its Feb-2016 powdery-mildew-wheat letter) but the EXACT DATE is not confirmed from a reliable source, so decision_date is intentionally left blank. Do NOT confuse with Calyxt's separate high-oleic/low-linolenic (HOLL) soybean, which was deemed non-regulated on 2020-06-03 but never commercialised. FDA voluntary consultation completed (BNF 000164)."
+        },
+        {
+          "country": "Canada",
+          "country_iso": "CA",
+          "regulatory_body": "Canadian Food Inspection Agency (CFIA)",
+          "approval_type": "commercial",
+          "mechanism": "non_regulated_determination",
+          "decision_date": "2021-12-23",
+          "decision_source_url": "https://inspection.canada.ca/en/plant-health/plant-varieties/novel-traits/approved-under-review/non-novel-products",
+          "decision_source_type": "primary_regulatory",
+          "commercial_status": "unknown",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "CFIA determined Calyxt's high-oleic soybean to be a non-novel product on 2021-12-23, listed on CFIA's public 'non-novel products' register under novel traits. Canadian market availability/commercial launch not independently confirmed from available sources."
         }
       ]
     },
@@ -183,6 +198,699 @@
           "commercial_source_url": "https://sanatech-seed.com/en/20210915-2/",
           "last_verified": "2026-07-08",
           "notes": "World's first commercialised genome-edited food crop. Under Japan's 2019 guidelines, SDN-1 products with no foreign DNA are not treated as GMOs but require notification to MHLW and an information filing with MAFF; notification accepted 11 Dec 2020. Seedlings distributed to home gardeners May 2021; fruit commercial sales from 15 Sept 2021. Later certified a Food with Functional Claims by the Consumer Affairs Agency on 30 Nov 2022 (Notification H617). Sold only in Japan. NOTE: two genome-edited fish (red sea bream; tiger puffer - Regional Fish Institute) are also marketed in Japan but are excluded from this CROP catalogue."
+        },
+        {
+          "country": "Philippines",
+          "country_iso": "PH",
+          "regulatory_body": "Department of Agriculture - Bureau of Plant Industry (BPI)",
+          "approval_type": "commercial",
+          "mechanism": "exemption",
+          "decision_date": "2024-06",
+          "decision_source_url": "https://www.isaaa.org/kc/cropbiotechupdate/article/default.asp?ID=20882",
+          "decision_source_type": "news",
+          "commercial_status": "unknown",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "BPI issued a Certificate of Non-Coverage (non-GMO exemption) for Sanatech's high-GABA tomato under Memorandum Circular No. 8 s.2022 (Plant Breeding Innovations framework). Exact decision date reported only as 'June 2024' in secondary sources; local commercial availability not independently confirmed."
+        },
+        {
+          "country": "Canada",
+          "country_iso": "CA",
+          "regulatory_body": "Canadian Food Inspection Agency (CFIA)",
+          "approval_type": "commercial",
+          "mechanism": "non_regulated_determination",
+          "decision_date": "2026-07-20",
+          "decision_source_url": "https://inspection.canada.ca/en/plant-health/plant-varieties/novel-traits/approved-under-review/non-novel-products",
+          "decision_source_type": "primary_regulatory",
+          "commercial_status": "unknown",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "CFIA non-novel determination for 'High GABA Tomato (#87-17)'. CFIA's register lists the developer as 'Sanatech Life Science Co., Ltd.' rather than 'Sanatech Seed Co., Ltd.' as in the original Japan filing - likely the same corporate group under a variant/updated name, TO CONFIRM. Canadian commercial launch not independently confirmed."
+        }
+      ]
+    },
+    {
+      "id": "corteva-waxy-corn-us",
+      "innovation_name": "Next Generation Waxy Corn",
+      "location": { "lat": 41.6725, "lng": -93.7377, "place": "Johnston, Iowa, US (approximate — Corteva/Pioneer Hi-Bred HQ)" },
+      "crop": {
+        "common_name": "Corn (maize)",
+        "species": "Zea mays"
+      },
+      "trait": {
+        "description": "High amylopectin (waxy) starch content via knockout of the waxy (Wx1/granule-bound starch synthase) gene, for processed-food, adhesive and paper applications.",
+        "category": "oil_composition"
+      },
+      "edit": {
+        "technique": "CRISPR-Cas9",
+        "sdn_class": "SDN-1",
+        "transgene_status": "transgene_free",
+        "transgene_status_source": "https://geneticliteracyproject.org/2016/04/19/dupont-pioneer-plans-to-market-gene-edited-crispr-corn-usda-will-not-regulate-it-as-a-gmo/"
+      },
+      "developer": {
+        "name": "DuPont Pioneer / Pioneer Hi-Bred International (now Corteva Agriscience)",
+        "country": "United States",
+        "country_iso": "US",
+        "type": "company"
+      },
+      "approvals": [
+        {
+          "country": "United States",
+          "country_iso": "US",
+          "regulatory_body": "USDA-APHIS",
+          "approval_type": "commercial",
+          "mechanism": "non_regulated_determination",
+          "decision_date": "2016-04",
+          "decision_source_url": "https://geneticliteracyproject.org/2016/04/19/dupont-pioneer-plans-to-market-gene-edited-crispr-corn-usda-will-not-regulate-it-as-a-gmo/",
+          "decision_source_type": "news",
+          "commercial_status": "unknown",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "Pioneer's Dec-2015 'Regulated Article Letter of Inquiry' received an APHIS response in April 2016 confirming CRISPR-Cas9 waxy corn is not regulated under 7 CFR part 340 - one of the first CRISPR crops cleared in the US. Announced as DuPont Pioneer's first CRISPR-Cas commercial product (18 Apr 2016); a limited precommercial launch followed in the Midwest around 2019. Broad-market commercial availability and current sales status TO CONFIRM - not clearly evidenced in available sources despite the 2016 clearance."
+        },
+        {
+          "country": "Canada",
+          "country_iso": "CA",
+          "regulatory_body": "Canadian Food Inspection Agency (CFIA)",
+          "approval_type": "commercial",
+          "mechanism": "non_regulated_determination",
+          "decision_date": "2020-02-25",
+          "decision_source_url": "https://inspection.canada.ca/en/plant-health/plant-varieties/novel-traits/approved-under-review/non-novel-products",
+          "decision_source_type": "primary_regulatory",
+          "commercial_status": "unknown",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "CFIA non-novel determination for 'Next Generation Waxy corn', developer listed as Pioneer Hi-Bred Canada Company."
+        }
+      ]
+    },
+    {
+      "id": "calyxt-iq-alfalfa-us",
+      "innovation_name": "IQ Alfalfa (Improved Quality Alfalfa)",
+      "location": { "lat": 45.0100, "lng": -93.1500, "place": "Roseville, Minnesota, US (approximate — developer HQ)" },
+      "crop": {
+        "common_name": "Alfalfa",
+        "species": "Medicago sativa"
+      },
+      "trait": {
+        "description": "Reduced lignin content via inactivation of a lignin-biosynthesis gene, improving forage digestibility for livestock.",
+        "category": "consumer_quality"
+      },
+      "edit": {
+        "technique": "TALEN",
+        "sdn_class": "SDN-1",
+        "transgene_status": "transgene_free",
+        "transgene_status_source": "https://www.synbiobeta.com/read/calyxt-and-s-ws-gene-edited-alfalfa-plant-designated-as-non-regulated-by-usda"
+      },
+      "developer": {
+        "name": "Calyxt, Inc. (in partnership with S&W Seed Company; later merged into Cibus, 2023)",
+        "country": "United States",
+        "country_iso": "US",
+        "type": "company"
+      },
+      "approvals": [
+        {
+          "country": "United States",
+          "country_iso": "US",
+          "regulatory_body": "USDA-APHIS",
+          "approval_type": "commercial",
+          "mechanism": "non_regulated_determination",
+          "decision_date": "2017-10",
+          "decision_source_url": "https://www.synbiobeta.com/read/calyxt-and-s-ws-gene-edited-alfalfa-plant-designated-as-non-regulated-by-usda",
+          "decision_source_type": "news",
+          "commercial_status": "early_commercialisation",
+          "commercial_since": "2021",
+          "commercial_source_url": "https://hayandforage.com/article-permalink-3268.html",
+          "last_verified": "2026-08-05",
+          "notes": "First alfalfa product to receive APHIS non-regulated / 'Am I Regulated?' status (Oct 2017). S&W Seed Company announced commercial terms with Calyxt in Nov 2020, with commercial launch of IQA (branded IQ Alfalfa) expected fall 2021. Post-2021 sales volume/market penetration not independently confirmed."
+        },
+        {
+          "country": "Canada",
+          "country_iso": "CA",
+          "regulatory_body": "Canadian Food Inspection Agency (CFIA)",
+          "approval_type": "commercial",
+          "mechanism": "non_regulated_determination",
+          "decision_date": "2022-05-18",
+          "decision_source_url": "https://inspection.canada.ca/en/plant-health/plant-varieties/novel-traits/approved-under-review/non-novel-products",
+          "decision_source_type": "primary_regulatory",
+          "commercial_status": "unknown",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "CFIA non-novel determination for 'IQ Alfalfa', developer listed as Calyxt Inc."
+        }
+      ]
+    },
+    {
+      "id": "inari-soy-yield-ca",
+      "innovation_name": "Soy Yield",
+      "location": { "lat": 42.3736, "lng": -71.1097, "place": "Cambridge, Massachusetts, US (approximate — developer HQ)" },
+      "crop": {
+        "common_name": "Soybean",
+        "species": "Glycine max"
+      },
+      "trait": {
+        "description": "Increased yield through changes in plant architecture, via multiplex CRISPR/Cas gene editing.",
+        "category": "yield"
+      },
+      "edit": {
+        "technique": "CRISPR-Cas",
+        "sdn_class": "SDN-1",
+        "transgene_status": "unknown",
+        "transgene_status_source": ""
+      },
+      "developer": {
+        "name": "Inari Agriculture, Inc.",
+        "country": "United States",
+        "country_iso": "US",
+        "type": "company"
+      },
+      "approvals": [
+        {
+          "country": "Canada",
+          "country_iso": "CA",
+          "regulatory_body": "Canadian Food Inspection Agency (CFIA)",
+          "approval_type": "commercial",
+          "mechanism": "non_regulated_determination",
+          "decision_date": "2025-10-30",
+          "decision_source_url": "https://inspection.canada.ca/en/plant-health/plant-varieties/novel-traits/approved-under-review/non-novel-products",
+          "decision_source_type": "primary_regulatory",
+          "commercial_status": "approved_not_marketed",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "CFIA non-novel determination for 'Soy Yield', developer Inari Agriculture, Inc. Inari also submitted an APHIS Regulatory Status Review request (Aug 2024) for a separately-described gene-edited soybean (oil/protein content, glufosinate tolerance); it is NOT CONFIRMED whether this is the same event as CFIA's 'Soy Yield', so no US approval is recorded here pending confirmation. As of the sources reviewed, Inari's soybean traits were still at demonstration-plot stage, not yet commercially sold."
+        }
+      ]
+    },
+    {
+      "id": "guelph-canola-starch-ca",
+      "innovation_name": "sbe starch-modified canola (sextuple and quadruple sbe mutants)",
+      "location": { "lat": 43.5327, "lng": -80.2262, "place": "Guelph, Ontario, Canada (approximate — developer HQ)" },
+      "crop": {
+        "common_name": "Canola (rapeseed)",
+        "species": "Brassica napus"
+      },
+      "trait": {
+        "description": "Reduced and modified starch content and thickened stems via CRISPR knockout of starch-branching enzyme (sbe) genes; two related research lines (sextuple and quadruple sbe mutants).",
+        "category": "oil_composition"
+      },
+      "edit": {
+        "technique": "CRISPR-Cas9",
+        "sdn_class": "SDN-1",
+        "transgene_status": "unknown",
+        "transgene_status_source": ""
+      },
+      "developer": {
+        "name": "University of Guelph",
+        "country": "Canada",
+        "country_iso": "CA",
+        "type": "university"
+      },
+      "approvals": [
+        {
+          "country": "Canada",
+          "country_iso": "CA",
+          "regulatory_body": "Canadian Food Inspection Agency (CFIA)",
+          "approval_type": "research",
+          "mechanism": "non_regulated_determination",
+          "decision_date": "2024-06-12",
+          "decision_source_url": "https://inspection.canada.ca/en/plant-health/plant-varieties/novel-traits/approved-under-review/non-novel-products",
+          "decision_source_type": "primary_regulatory",
+          "commercial_status": "unknown",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "CFIA issued non-novel determinations for both the 'sbe sextuple mutant' and 'sbe quadruple mutant' canola lines on the same date; consolidated here as one research-stage innovation with two related lines. No evidence found of progression beyond university research toward commercial variety development."
+        }
+      ]
+    },
+    {
+      "id": "icar-drr-dhan100-rice-in",
+      "innovation_name": "DRR Dhan 100 (Kamala)",
+      "location": { "lat": 17.3197, "lng": 78.4022, "place": "Hyderabad, India (approximate — ICAR-IIRR HQ)" },
+      "crop": {
+        "common_name": "Rice",
+        "species": "Oryza sativa"
+      },
+      "trait": {
+        "description": "Increased grains per panicle, ~20 days earlier maturity, improved lodging resistance and drought/salinity tolerance, in the Samba Mahsuri (BPT-5204) background; reported ~19% yield increase.",
+        "category": "yield"
+      },
+      "edit": {
+        "technique": "CRISPR-Cas9",
+        "sdn_class": "SDN-1/SDN-2",
+        "transgene_status": "transgene_free",
+        "transgene_status_source": "https://www.icar.org.in/en/union-agriculture-minister-shri-shivraj-singh-chouhan-announces-two-genome-edited-rice-varieties"
+      },
+      "developer": {
+        "name": "ICAR - Indian Institute of Rice Research (IIRR), Hyderabad",
+        "country": "India",
+        "country_iso": "IN",
+        "type": "public_research_institute"
+      },
+      "approvals": [
+        {
+          "country": "India",
+          "country_iso": "IN",
+          "regulatory_body": "Genetic Engineering Appraisal Committee (GEAC); released by Ministry of Agriculture & Farmers Welfare",
+          "approval_type": "commercial",
+          "mechanism": "exemption",
+          "decision_date": "2025-05-04",
+          "decision_source_url": "https://www.icar.org.in/en/union-agriculture-minister-shri-shivraj-singh-chouhan-announces-two-genome-edited-rice-varieties",
+          "decision_source_type": "primary_regulatory",
+          "commercial_status": "early_commercialisation",
+          "commercial_since": "2025",
+          "commercial_source_url": "https://india.mongabay.com/2025/06/india-releases-genome-edited-rice-draws-both-applause-and-alarm/",
+          "last_verified": "2026-08-05",
+          "notes": "Released 4 May 2025 by India's Union Agriculture Minister; India's first genome-edited crop release and reportedly the world's first genome-edited rice released for farmers. SDN-1/SDN-2 gene-edited crops are treated outside GMO/LMO regulation under India's biosafety guidelines, with GEAC oversight. Exact seed-distribution/commercial-sale scale to farmers as of the current date not independently confirmed beyond the official release."
+        }
+      ]
+    },
+    {
+      "id": "icar-pusa-dst-rice1-in",
+      "innovation_name": "Pusa DST Rice 1",
+      "location": { "lat": 28.6389, "lng": 77.1633, "place": "New Delhi, India (approximate — ICAR-IARI HQ, Pusa campus)" },
+      "crop": {
+        "common_name": "Rice",
+        "species": "Oryza sativa"
+      },
+      "trait": {
+        "description": "Enhanced drought and salt tolerance (DST) in the Cotton Dora Sannalu (MTU 1010) background; reported yield increases of ~9.7-30.4% under saline/alkaline soil conditions.",
+        "category": "yield"
+      },
+      "edit": {
+        "technique": "CRISPR-Cas9",
+        "sdn_class": "SDN-1/SDN-2",
+        "transgene_status": "transgene_free",
+        "transgene_status_source": "https://www.icar.org.in/en/union-agriculture-minister-shri-shivraj-singh-chouhan-announces-two-genome-edited-rice-varieties"
+      },
+      "developer": {
+        "name": "ICAR - Indian Agricultural Research Institute (IARI), New Delhi",
+        "country": "India",
+        "country_iso": "IN",
+        "type": "public_research_institute"
+      },
+      "approvals": [
+        {
+          "country": "India",
+          "country_iso": "IN",
+          "regulatory_body": "Genetic Engineering Appraisal Committee (GEAC); released by Ministry of Agriculture & Farmers Welfare",
+          "approval_type": "commercial",
+          "mechanism": "exemption",
+          "decision_date": "2025-05-04",
+          "decision_source_url": "https://www.icar.org.in/en/union-agriculture-minister-shri-shivraj-singh-chouhan-announces-two-genome-edited-rice-varieties",
+          "decision_source_type": "primary_regulatory",
+          "commercial_status": "early_commercialisation",
+          "commercial_since": "2025",
+          "commercial_source_url": "https://india.mongabay.com/2025/06/india-releases-genome-edited-rice-draws-both-applause-and-alarm/",
+          "last_verified": "2026-08-05",
+          "notes": "Released alongside DRR Dhan 100 on 4 May 2025 as one of India's first two genome-edited crop releases. Exact seed-distribution/commercial-sale scale to farmers as of the current date not independently confirmed beyond the official release."
+        }
+      ]
+    },
+    {
+      "id": "rothamsted-high-lipid-barley-uk",
+      "innovation_name": "High-lipid forage barley",
+      "location": { "lat": 51.8090, "lng": -0.3567, "place": "Harpenden, England, UK (approximate — Rothamsted Research HQ)" },
+      "crop": {
+        "common_name": "Barley",
+        "species": "Hordeum vulgare"
+      },
+      "trait": {
+        "description": "Increased lipid content in plant tissues via CRISPR editing to reduce breakdown of plant oils, creating a high-energy forage crop for ruminant livestock; potential to improve feed efficiency and reduce enteric methane.",
+        "category": "consumer_quality"
+      },
+      "edit": {
+        "technique": "CRISPR",
+        "sdn_class": "SDN-1",
+        "transgene_status": "unknown",
+        "transgene_status_source": ""
+      },
+      "developer": {
+        "name": "Rothamsted Research",
+        "country": "United Kingdom",
+        "country_iso": "GB",
+        "type": "public_research_institute"
+      },
+      "approvals": [
+        {
+          "country": "United Kingdom",
+          "country_iso": "GB",
+          "regulatory_body": "DEFRA / Advisory Committee on Releases to the Environment (ACRE), under the Genetic Technology (Precision Breeding) Act 2023",
+          "approval_type": "field_trial",
+          "mechanism": "exemption",
+          "decision_date": "2026-03",
+          "decision_source_url": "https://www.rothamsted.ac.uk/news/rothamsted-gene-edited-barley-crop-becomes-first-receive-uk-precision-bred-organism-marketing",
+          "decision_source_type": "primary_regulatory",
+          "commercial_status": "approved_not_marketed",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "First crop in the UK to receive a Precision Bred Organism (PBO) marketing notice confirmation under the Genetic Technology (Precision Breeding) Regulations 2025 (in force 13 Nov 2025). Notice enables progression to wider research/evaluation (via the Defra-funded PROBITY initiative) and eventual commercial deployment, not immediate market sale. Exact notice date not confirmed beyond 'March 2026' reporting."
+        }
+      ]
+    },
+    {
+      "id": "rothamsted-low-asparagine-wheat-uk",
+      "innovation_name": "Low-asparagine, low-acrylamide wheat",
+      "location": { "lat": 51.8050, "lng": -0.3500, "place": "Harpenden, England, UK (approximate — Rothamsted Research HQ)" },
+      "crop": {
+        "common_name": "Wheat",
+        "species": "Triticum aestivum"
+      },
+      "trait": {
+        "description": "Knockout of asparagine synthetase-2 (TaASN2) reduces free asparagine by up to 50%, cutting acrylamide formation (a suspected carcinogen) during baking, frying, roasting and toasting, without significant yield loss.",
+        "category": "food_safety"
+      },
+      "edit": {
+        "technique": "CRISPR",
+        "sdn_class": "SDN-1",
+        "transgene_status": "unknown",
+        "transgene_status_source": ""
+      },
+      "developer": {
+        "name": "Rothamsted Research",
+        "country": "United Kingdom",
+        "country_iso": "GB",
+        "type": "public_research_institute"
+      },
+      "approvals": [
+        {
+          "country": "United Kingdom",
+          "country_iso": "GB",
+          "regulatory_body": "DEFRA / Advisory Committee on Releases to the Environment (ACRE), under the Genetic Technology (Precision Breeding) Act 2023; Food Standards Agency review pending for food/feed use",
+          "approval_type": "field_trial",
+          "mechanism": "exemption",
+          "decision_date": "2026-04",
+          "decision_source_url": "https://www.rothamsted.ac.uk/news/low-asparagine-low-acrylamide-wheat-receives-precision-bred-status-advancing-safer-food",
+          "decision_source_type": "primary_regulatory",
+          "commercial_status": "approved_not_marketed",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "Confirmed as meeting Precision Bred Organism criteria under the PROBITY project; enables growing on a small number of selected farms and processing in real-world food manufacturing trials, pending separate FSA food/feed safety review. Not yet a general commercial release."
+        }
+      ]
+    },
+    {
+      "id": "qibiodesign-soybean-gmln-cn",
+      "innovation_name": "High-yield soybean (GmLn mutant, event QH64112)",
+      "location": { "lat": 31.2989, "lng": 120.5853, "place": "Suzhou, Jiangsu, China (approximate — developer HQ)" },
+      "crop": {
+        "common_name": "Soybean",
+        "species": "Glycine max"
+      },
+      "trait": {
+        "description": "Improved yield traits via targeted mutation of the GmLn gene.",
+        "category": "yield"
+      },
+      "edit": {
+        "technique": "CRISPR-Cas",
+        "sdn_class": "SDN-1",
+        "transgene_status": "transgene_free",
+        "transgene_status_source": ""
+      },
+      "developer": {
+        "name": "Suzhou Qi-Biodesign Biotechnology Company Limited / Beijing Qi-Biodesign Biotechnology Company Limited",
+        "country": "China",
+        "country_iso": "CN",
+        "type": "company"
+      },
+      "approvals": [
+        {
+          "country": "China",
+          "country_iso": "CN",
+          "regulatory_body": "Ministry of Agriculture and Rural Affairs (MARA)",
+          "approval_type": "commercial",
+          "mechanism": "affirmative_approval",
+          "decision_date": "2024-12-25",
+          "decision_source_url": "https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=New+and+Renewed+Biosafety+Certificates+Issued+-+December+2024_Beijing_China+-+People's+Republic+of_CH2024-0180",
+          "decision_source_type": "gain_report",
+          "commercial_status": "approved_not_marketed",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "One of 5 new biosafety certificates issued 25 Dec 2024 in MARA's separate 'Gene-Edited Crops Approved for Cultivation/Processing' list (distinct from its transgenic 'GE Crops' list), nationwide approval, valid to 24 Dec 2029. Technique recorded as CRISPR-Cas based on Qi-Biodesign's published 'SEEDIT' genome-editing platform; not independently confirmed for this specific event from the primary MARA listing, which does not itself state the editing method. Commercial planting/seed-sale status since the Dec 2024 certificate not independently confirmed."
+        }
+      ]
+    },
+    {
+      "id": "chinaseedgroup-soybean-e001syft-cn",
+      "innovation_name": "Improved-physiology soybean (GmE1/GmE1Lb mutant, event E001SYFT)",
+      "location": { "lat": 39.9042, "lng": 116.4074, "place": "Beijing, China (approximate — developer HQ)" },
+      "crop": {
+        "common_name": "Soybean",
+        "species": "Glycine max"
+      },
+      "trait": {
+        "description": "Improved soybean physiological traits via targeted mutation of the GmE1 and GmE1Lb genes.",
+        "category": "yield"
+      },
+      "edit": {
+        "technique": "unknown",
+        "sdn_class": "SDN-1",
+        "transgene_status": "transgene_free",
+        "transgene_status_source": ""
+      },
+      "developer": {
+        "name": "China Seed Group Co., Ltd. (Syngenta Group)",
+        "country": "China",
+        "country_iso": "CN",
+        "type": "company"
+      },
+      "approvals": [
+        {
+          "country": "China",
+          "country_iso": "CN",
+          "regulatory_body": "Ministry of Agriculture and Rural Affairs (MARA)",
+          "approval_type": "commercial",
+          "mechanism": "affirmative_approval",
+          "decision_date": "2024-12-25",
+          "decision_source_url": "https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=New+and+Renewed+Biosafety+Certificates+Issued+-+December+2024_Beijing_China+-+People's+Republic+of_CH2024-0180",
+          "decision_source_type": "gain_report",
+          "commercial_status": "approved_not_marketed",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "One of 5 new biosafety certificates issued 25 Dec 2024 in MARA's 'Gene-Edited Crops Approved for Cultivation/Processing' list, nationwide, valid to 24 Dec 2029. Specific editing technique not stated in the primary source; not independently confirmed as CRISPR vs. another SDN method, hence 'unknown'. Commercial planting/seed-sale status not independently confirmed."
+        }
+      ]
+    },
+    {
+      "id": "weimi-corn-zmnl4-cn",
+      "innovation_name": "High-density corn (ZmNL4 mutant, event KN-NL4-2)",
+      "location": { "lat": 18.2528, "lng": 109.5119, "place": "Sanya, Hainan, China (approximate — Hainan seed-breeding hub)" },
+      "crop": {
+        "common_name": "Corn (maize)",
+        "species": "Zea mays"
+      },
+      "trait": {
+        "description": "Improved corn yield traits via knockout of the ZmNL4 gene, producing narrower leaves suited to high-density planting.",
+        "category": "yield"
+      },
+      "edit": {
+        "technique": "CRISPR-Cas9",
+        "sdn_class": "SDN-1",
+        "transgene_status": "transgene_free",
+        "transgene_status_source": ""
+      },
+      "developer": {
+        "name": "Weimi Biotechnology (Hainan) Co., Ltd. / Huazhong Agricultural University",
+        "country": "China",
+        "country_iso": "CN",
+        "type": "company"
+      },
+      "approvals": [
+        {
+          "country": "China",
+          "country_iso": "CN",
+          "regulatory_body": "Ministry of Agriculture and Rural Affairs (MARA)",
+          "approval_type": "commercial",
+          "mechanism": "affirmative_approval",
+          "decision_date": "2024-12-25",
+          "decision_source_url": "https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=New+and+Renewed+Biosafety+Certificates+Issued+-+December+2024_Beijing_China+-+People's+Republic+of_CH2024-0180",
+          "decision_source_type": "gain_report",
+          "commercial_status": "approved_not_marketed",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "One of 5 new biosafety certificates issued 25 Dec 2024 in MARA's 'Gene-Edited Crops Approved for Cultivation/Processing' list, nationwide, valid to 24 Dec 2029. Huazhong Agricultural University's CRISPR/Cas9 maize mutagenesis programme is the likely source technique; not independently confirmed as the exact method for this specific event. Commercial planting/seed-sale status not independently confirmed."
+        }
+      ]
+    },
+    {
+      "id": "qibiodesign-rice-wx-cn",
+      "innovation_name": "Quality rice (Wx mutant, event 118-9-15)",
+      "location": { "lat": 31.3050, "lng": 120.5900, "place": "Suzhou, Jiangsu, China (approximate — developer HQ)" },
+      "crop": {
+        "common_name": "Rice",
+        "species": "Oryza sativa"
+      },
+      "trait": {
+        "description": "Improved rice grain quality via targeted mutation of the Wx (waxy/amylose) gene. China's first approved gene-edited rice event.",
+        "category": "consumer_quality"
+      },
+      "edit": {
+        "technique": "CRISPR-Cas",
+        "sdn_class": "SDN-1",
+        "transgene_status": "transgene_free",
+        "transgene_status_source": ""
+      },
+      "developer": {
+        "name": "Suzhou Qi-Biodesign Biotechnology Company Limited / Jiangsu Academy of Agricultural Sciences / Beijing Qi-Biodesign Biotechnology Company Limited",
+        "country": "China",
+        "country_iso": "CN",
+        "type": "company"
+      },
+      "approvals": [
+        {
+          "country": "China",
+          "country_iso": "CN",
+          "regulatory_body": "Ministry of Agriculture and Rural Affairs (MARA)",
+          "approval_type": "commercial",
+          "mechanism": "affirmative_approval",
+          "decision_date": "2024-12-25",
+          "decision_source_url": "https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=New+and+Renewed+Biosafety+Certificates+Issued+-+December+2024_Beijing_China+-+People's+Republic+of_CH2024-0180",
+          "decision_source_type": "gain_report",
+          "commercial_status": "approved_not_marketed",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "The first gene-edited rice event approved in China (of 5 new certificates issued 25 Dec 2024 in MARA's 'Gene-Edited Crops Approved for Cultivation/Processing' list), nationwide, valid to 24 Dec 2029. Technique recorded as CRISPR-Cas based on Qi-Biodesign's published SEEDIT platform; not independently confirmed for this specific event from the primary MARA listing. Commercial planting/seed-sale status not independently confirmed."
+        }
+      ]
+    },
+    {
+      "id": "qibiodesign-wheat-taals-cn",
+      "innovation_name": "Herbicide-tolerant wheat (TaALS mutant, event TaALS-4)",
+      "location": { "lat": 31.2930, "lng": 120.5800, "place": "Suzhou, Jiangsu, China (approximate — developer HQ)" },
+      "crop": {
+        "common_name": "Wheat",
+        "species": "Triticum aestivum"
+      },
+      "trait": {
+        "description": "ALS-inhibitor herbicide tolerance via targeted mutation of the TaALS gene.",
+        "category": "herbicide_tolerance"
+      },
+      "edit": {
+        "technique": "CRISPR-Cas",
+        "sdn_class": "SDN-1",
+        "transgene_status": "transgene_free",
+        "transgene_status_source": ""
+      },
+      "developer": {
+        "name": "Suzhou Qi-Biodesign Biotechnology Company Limited",
+        "country": "China",
+        "country_iso": "CN",
+        "type": "company"
+      },
+      "approvals": [
+        {
+          "country": "China",
+          "country_iso": "CN",
+          "regulatory_body": "Ministry of Agriculture and Rural Affairs (MARA)",
+          "approval_type": "commercial",
+          "mechanism": "affirmative_approval",
+          "decision_date": "2024-12-25",
+          "decision_source_url": "https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=New+and+Renewed+Biosafety+Certificates+Issued+-+December+2024_Beijing_China+-+People's+Republic+of_CH2024-0180",
+          "decision_source_type": "gain_report",
+          "commercial_status": "approved_not_marketed",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "One of 5 new biosafety certificates issued 25 Dec 2024 in MARA's 'Gene-Edited Crops Approved for Cultivation/Processing' list, nationwide, valid to 24 Dec 2029. Technique recorded as CRISPR-Cas based on Qi-Biodesign's published SEEDIT platform; not independently confirmed for this specific event. Commercial planting/seed-sale status not independently confirmed."
+        }
+      ]
+    },
+    {
+      "id": "tropic-nonbrowning-banana-gb",
+      "innovation_name": "Non-browning banana (TNB, events TRB011001 / TRB011002)",
+      "location": { "lat": 52.6309, "lng": 1.2974, "place": "Norwich, England, UK (approximate — Tropic Biosciences HQ, Norwich Research Park)" },
+      "crop": {
+        "common_name": "Banana",
+        "species": "Musa acuminata"
+      },
+      "trait": {
+        "description": "Reduced enzymatic browning via loss-of-function editing of the polyphenol oxidase (PPO) gene, reducing food waste from cut/bruised fruit. First new banana variety in over 75 years; named a TIME Best Inventions honouree (2025).",
+        "category": "consumer_quality"
+      },
+      "edit": {
+        "technique": "CRISPR (GEiGS - Gene Editing-induced Gene Silencing platform)",
+        "sdn_class": "SDN-1",
+        "transgene_status": "unknown",
+        "transgene_status_source": ""
+      },
+      "developer": {
+        "name": "Tropic Biosciences",
+        "country": "United Kingdom",
+        "country_iso": "GB",
+        "type": "company"
+      },
+      "approvals": [
+        {
+          "country": "United States",
+          "country_iso": "US",
+          "regulatory_body": "USDA-APHIS",
+          "approval_type": "commercial",
+          "mechanism": "non_regulated_determination",
+          "decision_date": "2023-11-14",
+          "decision_source_url": "https://www.nongmoproject.org/blog/new-gmo-alert-crispr-crops-are-unregulated-and-under-the-radar/",
+          "decision_source_type": "news",
+          "commercial_status": "marketed",
+          "commercial_since": "2025",
+          "commercial_source_url": "https://tropic.bio/tropics-non-browning-gene-edited-banana-cleared-for-production-in-the-philippines/",
+          "last_verified": "2026-08-05",
+          "notes": "APHIS listed the non-browning banana among non-regulated GE crop/trait determinations published 14 Nov 2023. Tropic states it has regulatory determinations, notifications or exemptions in 11 countries in total; only those independently corroborated below are listed as separate approvals. Commercially launched in 2025 per company statements (market described as the first new banana variety in 75+ years)."
+        },
+        {
+          "country": "Philippines",
+          "country_iso": "PH",
+          "regulatory_body": "Department of Agriculture - Bureau of Plant Industry (BPI)",
+          "approval_type": "commercial",
+          "mechanism": "exemption",
+          "decision_date": "2023-04",
+          "decision_source_url": "https://www.isaaa.org/kc/cropbiotechupdate/article/default.asp?ID=20135",
+          "decision_source_type": "news",
+          "commercial_status": "unknown",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "Initial BPI non-GMO exemption decision reported April 2023; variety-specific Certificates of Non-Coverage for events TRB011001 and TRB011002 followed 21 Jun 2024."
+        },
+        {
+          "country": "Japan",
+          "country_iso": "JP",
+          "regulatory_body": "Not specified in available sources (MHLW/MAFF notification pathway presumed, per Japan's standard genome-edited food process)",
+          "approval_type": "commercial",
+          "mechanism": "notification",
+          "decision_date": "2026-04-10",
+          "decision_source_url": "https://www.isaaa.org/kc/cropbiotechupdate/article/default.asp?ID=21775",
+          "decision_source_type": "news",
+          "commercial_status": "unknown",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "Reported 10 Apr 2026 approval enabling import, sale and consumption in Japan. Regulatory mechanism inferred from Japan's general genome-edited-food notification pathway (as used for the Sanatech GABA tomato), NOT independently confirmed for this specific case - TO CONFIRM against a primary MHLW/MAFF source."
+        },
+        {
+          "country": "Brazil",
+          "country_iso": "BR",
+          "regulatory_body": "Not specified in available sources (CTNBio presumed)",
+          "approval_type": "commercial",
+          "mechanism": "unknown",
+          "decision_date": "2026-04-10",
+          "decision_source_url": "https://www.isaaa.org/kc/cropbiotechupdate/article/default.asp?ID=21775",
+          "decision_source_type": "news",
+          "commercial_status": "unknown",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-08-05",
+          "notes": "FLAGGED FOR VERIFICATION: reported 10 Apr 2026 as enabling the banana to be 'imported, sold and consumed' in Brazil, with one source additionally stating it may be 'grown in Brazil'. This catalogue's scope excludes import/food-only authorisations (see meta.scope_note); whether this approval covers domestic cultivation (in scope) or is import/sale-only (out of scope) is NOT independently confirmed from available sources. Retained here with this caveat rather than silently excluded, given the source ambiguity. This also revises this file's prior Brazil coverage_note (removed), which had recorded no qualifying gene-edited crop record as of 2026-07-08 - that finding may have predated or missed this Apr-2026 development."
         }
       ]
     }
@@ -226,20 +934,6 @@
         "https://crispr-gene-editing-regs-tracker.geneticliteracyproject.org/argentina-crops-food/",
         "https://neocroptech.com/en/neocrop-obtains-green-light-for-the-first-crispr-edited-wheat-in-argentina/",
         "https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2023.1209308/full"
-      ]
-    },
-    {
-      "country": "Brazil",
-      "country_iso": "BR",
-      "status": "no_qualifying_records",
-      "framework_stance": "case_by_case_permissive",
-      "as_of": "2026-07-08",
-      "key_instrument": "CTNBio Normative Resolution 16 (RN16), 2018 (TIMPs consultation procedure)",
-      "explanation": "Extensive pipeline of CTNBio 'non-GMO/conventional' determinations under RN16 (e.g. Embrapa drought-tolerant and lectin-free soybeans; Cana Flex CRISPR sugarcane; FuturaGene gene-edited eucalyptus classified conventional Feb 2026, proceeding via field trials). Analyses cite a ~2-3 year lag from determination to market. No gene-edited crop confirmed as commercially cultivated as of the search date. CORRECTION FLAG: the widely-cited 'December 2024 MARA five biosafety certificates including the first gene-edited rice for domestic cultivation' is CHINA (MARA = China's Ministry of Agriculture and Rural Affairs, 31 Dec 2024), NOT Brazil - do not attribute this event to Brazil.",
-      "sources": [
-        "https://crispr-gene-editing-regs-tracker.geneticliteracyproject.org/brazil-crops-food/",
-        "https://www.gmwatch.org/en/106-news/latest-news/20203-experimental-soybean-gene-edited-for-drought-tolerance-is-approved-by-brazil-s-gmo-regulator",
-        "https://www.isaaa.org/kc/cropbiotechupdate/article/default.asp?ID=21147"
       ]
     },
     {
@@ -343,6 +1037,110 @@
       "explanation": "Environmental release of GMOs is prohibited; the country relies on GM food/feed imports from neighbours. No enabling framework for, or commercial cultivation of, gene-edited crops.",
       "sources": [
         "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2021.630396/full"
+      ]
+    },
+    {
+      "country": "South Korea",
+      "country_iso": "KR",
+      "status": "no_qualifying_records",
+      "framework_stance": "restrictive",
+      "as_of": "2026-08-05",
+      "key_instrument": "Existing GMO labeling law (applies even to gene-edited products with no detectable foreign DNA); revised Food Sanitation Act passed by National Assembly 2 Dec 2025 (pending presidential signature at time of research) would extend mandatory GMO labeling to non-detectable gene-edited products",
+      "explanation": "South Korea does not cultivate gene-edited crops commercially. The Rural Development Administration approved 79 field-trial research projects (Jan-Oct 2024) covering CRISPR work such as high-antioxidant sweet potato, high-oleic soybean, and vitamin-D-enriched tomato, but all remain research-stage. Labeling law changes moving through the National Assembly in late 2025 would keep gene-edited crops without foreign DNA classified alongside GMOs, a stricter posture than the US/Canada/Japan model. No gene-edited crop confirmed as commercially cultivated as of the search date.",
+      "sources": [
+        "https://geneticliteracyproject.org/2025/12/11/will-south-korea-join-the-rest-of-the-science-world-in-deregulating-genetically-engineered-crops/",
+        "https://foodsystems.org/event/ge-plants-korea-4/"
+      ]
+    },
+    {
+      "country": "Israel",
+      "country_iso": "IL",
+      "status": "no_qualifying_records",
+      "framework_stance": "case_by_case_permissive",
+      "as_of": "2026-08-05",
+      "key_instrument": "Case-by-case product-based assessment (no single dedicated gene-editing statute identified in sources reviewed)",
+      "explanation": "Active CRISPR research pipeline (e.g. Tel Aviv University's reduced-water-use ROP9-edited tomato; Agricultural Research Organization weed-resistant tomato) but all identified work is described as research-stage. No gene-edited crop confirmed as commercially approved or cultivated as of the search date.",
+      "sources": [
+        "https://www.isaaa.org/kc/cropbiotechupdate/ged/article/default.asp?ID=21412",
+        "https://crispr-gene-editing-regs-tracker.geneticliteracyproject.org/israel-crops-food/"
+      ]
+    },
+    {
+      "country": "Vietnam",
+      "country_iso": "VN",
+      "status": "no_qualifying_records",
+      "framework_stance": "permissive",
+      "as_of": "2026-08-05",
+      "key_instrument": "Decree 43/2026/ND-CP (issued 26 Jan 2026), establishing a self-determination process and excluding foreign-DNA-free gene-edited organisms from GMO requirements; Prime Minister's Decision 1131/QD-TTg (Jun 2025) designating biotechnology a strategic agricultural priority",
+      "explanation": "Framework only just liberalised (Jan 2026 decree formally distinguishes gene-edited crops from transgenic GMOs and streamlines approval). Reported CRISPR research covers rice aroma/blight resistance, tomato sugar/amino-acid content, papaya ringspot resistance and virus-resistant cucumber, but no product is confirmed to have completed the new approval pathway or reached commercial cultivation as of the search date - framework is too new.",
+      "sources": [
+        "https://www.isaaa.org/kc/cropbiotechupdate/article/default.asp?ID=21798",
+        "https://www.fertilizerdaily.com/20251223-vietnam-proposes-looser-rules-for-gene-edited-crops/"
+      ]
+    },
+    {
+      "country": "Nigeria",
+      "country_iso": "NG",
+      "status": "no_qualifying_records",
+      "framework_stance": "case_by_case_permissive",
+      "as_of": "2026-08-05",
+      "key_instrument": "National Biosafety Guideline on Gene Editing (validated 2020/published 2022) - the first genome-editing-specific biosafety guidance issued by any African government",
+      "explanation": "Nigeria was first in Africa to publish dedicated gene-editing guidelines via the National Biosafety Management Agency (NBMA), but its commercialised biotech crops to date - TELA maize (SAMMAZ 72T-75T, approved Jan 2024) and Pod-Borer Resistant Cowpea (2019) - are conventional TRANSGENIC events (inserted Bt/cry genes), out of scope for this catalogue. No SDN/CRISPR-edited crop confirmed as commercially cultivated as of the search date.",
+      "sources": [
+        "https://www.isaaa.org/kc/cropbiotechupdate/article/default.asp?ID=20598",
+        "https://fas.usda.gov/data/nigeria-government-nigeria-approved-national-biosafety-guideline-gene-editing"
+      ]
+    },
+    {
+      "country": "Kenya",
+      "country_iso": "KE",
+      "status": "no_qualifying_records",
+      "framework_stance": "case_by_case_permissive",
+      "as_of": "2026-08-05",
+      "key_instrument": "National Biosafety Authority (NBA) Guidelines for Genome Editing (published March 2022; revised guideline NBA/TEC/ML/11 since reissued)",
+      "explanation": "Second African country (after Nigeria) to publish genome-editing guidelines. NBA reported approving six gene-editing applications, and Kenyatta University researchers are pursuing CRISPR-based striga resistance in sorghum, but all identified work remains research-stage. Kenya's only commercialised biotech crop, Bt cotton, is conventional transgenic and out of scope; Bt corn and GE cassava have cleared regulatory stages but await a pending court decision before commercialisation. No SDN/CRISPR-edited crop confirmed as commercially cultivated as of the search date.",
+      "sources": [
+        "https://www.businessdailyafrica.com/bd/data-hub/kenya-gears-gene-edited-crops-food-security-3276062",
+        "https://www.biosafetykenya.go.ke/wp-content/uploads/2025/08/Revised-Genome-Editing-Guidelines.pdf"
+      ]
+    },
+    {
+      "country": "Ghana",
+      "country_iso": "GH",
+      "status": "no_qualifying_records",
+      "framework_stance": "case_by_case_permissive",
+      "as_of": "2026-08-05",
+      "key_instrument": "National Biosafety Authority Guidelines on Genome Editing (published 30 Oct 2023)",
+      "explanation": "Ghana's National Biosafety Authority has a dedicated genome-editing guideline, but the country's only approved biotech food crop, Songotra-T Bt cowpea (approved 2024, building on a 2022 environmental-release decision), is a conventional transgenic event, out of scope for this catalogue. No SDN/CRISPR-edited crop confirmed as commercially cultivated as of the search date.",
+      "sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11540646/",
+        "https://geneticliteracyproject.org/2025/08/11/africas-quiet-biotech-revolution-gene-editing-emerges-from-europes-anti-gmo-shadow/"
+      ]
+    },
+    {
+      "country": "Switzerland",
+      "country_iso": "CH",
+      "status": "no_qualifying_records",
+      "framework_stance": "moratorium_with_emerging_carveout",
+      "as_of": "2026-08-05",
+      "key_instrument": "GMO moratorium extended by Parliament (Jun 2025) to end of 2030, covering gene-edited plants; draft liberalising 'Breeding Technologies Act' opened for consultation 2 Apr 2025, with a decree draft targeted for Q1 2026 presentation to parliament",
+      "explanation": "Switzerland currently classifies all gene-edited plants as GMOs under existing law, and the extended moratorium bars commercial cultivation of any GMO (gene-edited or transgenic) until end-2030 (field trials and food/feed marketing are not covered by the moratorium). A new framework is in active development to carve out targeted-mutagenesis and cisgenesis NBTs, but it had not been enacted as of the search date. No gene-edited crop cultivated commercially.",
+      "sources": [
+        "https://www.swissinfo.ch/eng/science/towards-an-extension-of-the-moratorium-on-genetic-engineering/88971038",
+        "https://geneticliteracyproject.org/2025/04/07/switzerland-poised-to-break-from-its-anti-gmo-past-edges-closer-to-deregulating-gene-edited-crops-to-increase-crop-yields/"
+      ]
+    },
+    {
+      "country": "European Union",
+      "country_iso": "EU",
+      "status": "no_qualifying_records",
+      "framework_stance": "permissive",
+      "as_of": "2026-08-05",
+      "key_instrument": "New Genomic Techniques (NGT) Regulation - Council adopted 21 Apr 2026, European Parliament gave final approval 17 Jun 2026, clearing publication in the Official Journal",
+      "explanation": "The EU only just cleared its NGT Regulation, which moves away from process-based GMO regulation (Directive 2001/18) toward product-based tiers: NGT1 plants (changes that could occur naturally/via conventional breeding) are exempted from GMO rules, NGT2 plants get a lighter risk-assessment track. As of the search date the regulation had only just been approved for publication, with no NGT1/NGT2 product determinations or commercial cultivations yet confirmed under it. Applies EU-wide (individual member states, e.g. Switzerland and the UK, are outside the EU framework and tracked separately in this file).",
+      "sources": [
+        "https://www.bloomberg.com/news/articles/2026-06-17/eu-clears-final-hurdle-to-allow-cultivation-of-gene-edited-crops",
+        "https://www.filewrapper.com/eu-approves-new-genomic-techniques-ngt-rules-what-gene-edited-plant-developers-need-to-know/"
       ]
     }
   ]
