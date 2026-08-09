@@ -167,6 +167,65 @@ function detailHtml(innovation) {
     </div>`;
 }
 
+function earliestYear(innovation) {
+  const years = (innovation.approvals || [])
+    .flatMap((a) => [a.decision_date, a.commercial_since])
+    .map((v) => (v ? String(v).match(/\d{4}/) : null))
+    .filter(Boolean)
+    .map((m) => parseInt(m[0], 10));
+  return years.length ? Math.min(...years) : null;
+}
+
+const yearSlider = document.getElementById('year-slider');
+const yearLabel = document.getElementById('year-label');
+const playBtn = document.getElementById('play-btn');
+let playTimer = null;
+
+function applyYearFilter(year) {
+  markersData.forEach(({ marker, innovation }) => {
+    const visible = innovation.__year == null || innovation.__year <= year;
+    const onMap = map.hasLayer(marker);
+    if (visible && !onMap) marker.addTo(map);
+    if (!visible && onMap) map.removeLayer(marker);
+  });
+  yearLabel.textContent = year;
+}
+
+function stopPlaying() {
+  if (playTimer) {
+    clearInterval(playTimer);
+    playTimer = null;
+    playBtn.textContent = '▶';
+    playBtn.setAttribute('aria-label', 'Play');
+  }
+}
+
+playBtn.addEventListener('click', () => {
+  if (playTimer) {
+    stopPlaying();
+    return;
+  }
+  if (Number(yearSlider.value) >= Number(yearSlider.max)) {
+    yearSlider.value = yearSlider.min;
+  }
+  playBtn.textContent = '⏸';
+  playBtn.setAttribute('aria-label', 'Pause');
+  playTimer = setInterval(() => {
+    const next = Number(yearSlider.value) + 1;
+    if (next > Number(yearSlider.max)) {
+      stopPlaying();
+      return;
+    }
+    yearSlider.value = next;
+    applyYearFilter(next);
+  }, 900);
+});
+
+yearSlider.addEventListener('input', () => {
+  stopPlaying();
+  applyYearFilter(Number(yearSlider.value));
+});
+
 const detailPanel = document.getElementById('detail-panel');
 const detailContent = document.getElementById('detail-content');
 const detailClose = document.getElementById('detail-close');
@@ -190,6 +249,8 @@ fetch('data/ge-crops.json')
       const loc = innovation.location;
       if (!loc) return;
 
+      innovation.__year = earliestYear(innovation);
+
       const marker = L.marker([loc.lat, loc.lng], { icon: makeMarkerIcon(DEFAULT_COLOR) }).addTo(map);
 
       marker.bindTooltip(escapeHtml(innovation.id), {
@@ -207,6 +268,14 @@ fetch('data/ge-crops.json')
     });
 
     applyScheme(activeSchemeKey);
+
+    const years = markersData.map(({ innovation }) => innovation.__year).filter((y) => y != null);
+    const minYear = years.length ? Math.min(...years) : new Date().getFullYear();
+    const maxYear = years.length ? Math.max(...years) : new Date().getFullYear();
+    yearSlider.min = minYear;
+    yearSlider.max = maxYear;
+    yearSlider.value = maxYear;
+    applyYearFilter(maxYear);
   })
   .catch((err) => {
     console.error('Failed to load GE crops data', err);

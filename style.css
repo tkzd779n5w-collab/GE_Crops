@@ -101,6 +101,47 @@ footer a {
   color: var(--accent);
 }
 
+/* Year controls */
+#controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.5rem;
+  background: #fff;
+  border-top: 1px solid var(--border);
+}
+
+#play-btn {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--ink);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+#play-btn:hover {
+  background: #f2f2f0;
+}
+
+#year-slider {
+  flex: 1 1 auto;
+  accent-color: var(--accent);
+}
+
+#year-label {
+  flex: 0 0 auto;
+  min-width: 3rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--muted);
+}
+
 /* Marker */
 .ge-marker span {
   display: block;
