@@ -35,6 +35,35 @@ const COLOR_SCHEMES = {
       { label: 'Approved, not marketed', color: '#2980b9', test: (v) => v.includes('approved_not_marketed') },
       { label: 'Withdrawn', color: '#7f8c8d', test: (v) => v.includes('withdrawn') }
     ]
+  },
+  crop_type: {
+    label: 'Crop type',
+    getValue: (innovation) => innovation.crop.common_name,
+    groups: [
+      { label: 'Soybean', color: '#a6cee3', test: (v) => v === 'Soybean' },
+      { label: 'Mustard greens', color: '#1f78b4', test: (v) => v === 'Mustard greens' },
+      { label: 'Field pennycress', color: '#b2df8a', test: (v) => v === 'Field pennycress' },
+      { label: 'Tomato', color: '#33a02c', test: (v) => v === 'Tomato' },
+      { label: 'Corn (maize)', color: '#fb9a99', test: (v) => v === 'Corn (maize)' },
+      { label: 'Alfalfa', color: '#e31a1c', test: (v) => v === 'Alfalfa' },
+      { label: 'Canola (rapeseed)', color: '#fdbf6f', test: (v) => v === 'Canola (rapeseed)' },
+      { label: 'Rice', color: '#ff7f00', test: (v) => v === 'Rice' },
+      { label: 'Barley', color: '#cab2d6', test: (v) => v === 'Barley' },
+      { label: 'Wheat', color: '#6a3d9a', test: (v) => v === 'Wheat' },
+      { label: 'Banana', color: '#b15928', test: (v) => v === 'Banana' }
+    ]
+  },
+  trait_category: {
+    label: 'Crop trait',
+    getValue: (innovation) => innovation.trait.category,
+    groups: [
+      { label: 'Oil composition', color: '#66c2a5', test: (v) => v === 'oil_composition' },
+      { label: 'Consumer quality', color: '#fc8d62', test: (v) => v === 'consumer_quality' },
+      { label: 'Nutritional quality', color: '#8da0cb', test: (v) => v === 'nutritional_quality' },
+      { label: 'Yield', color: '#e78ac3', test: (v) => v === 'yield' },
+      { label: 'Food safety', color: '#a6d854', test: (v) => v === 'food_safety' },
+      { label: 'Herbicide tolerance', color: '#ffd92f', test: (v) => v === 'herbicide_tolerance' }
+    ]
   }
 };
 
