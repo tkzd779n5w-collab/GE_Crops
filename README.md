@@ -6,8 +6,8 @@ Live demo: https://tkzd779n5w-collab.github.io/GE_Crops/
 
 ## Features
 
-- **Hover** a marker for a quick ID label; **click** it to open a full-height side panel with the complete record (crop/trait/edit details, developer, and every per-country approval) — long entries scroll independently instead of being clipped in a small popup.
-- **Colour markers by** (top-right control): Technique, Commercial status, Crop type, or Crop trait — each with its own legend.
+- **Hover** a marker to see its crop (common name + species); **click** it to open a full-height side panel with the complete record (innovation name, trait/edit details, developer, and every per-country approval) — long entries scroll independently instead of being clipped in a small popup. Panel text is reformatted to read cleanly: no raw hyphens/underscores, and dates are written out (e.g. "12 Jun 2024").
+- **Categories** (top-right control): colour markers by Technique, Commercial status, Crop type, or Crop trait — each with its own legend. Clicking a category also shows a one-sentence description of what it means, next to the control.
 - **Year slider** (bottom of the map, with play/pause): filters markers to those first approved by the selected year, so you can scrub or auto-play through the timeline of approvals.
 
 ## Data
