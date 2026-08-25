@@ -100,11 +100,11 @@ legend.addTo(map);
 function updateLegend() {
   const scheme = COLOR_SCHEMES[activeSchemeKey];
   const usesDefault = markersData.some(({ innovation }) => !scheme.groups.some((g) => g.test(scheme.getValue(innovation))));
-  const items = scheme.groups.map((g) => `<div class="legend-item"><span class="swatch" style="background:${g.color}"></span>${escapeHtml(humanize(g.label))}</div>`);
+  const items = scheme.groups.map((g) => `<div class="legend-item"><span class="swatch" style="background:${g.color}"></span>${escapeHtml(g.label)}</div>`);
   if (usesDefault) {
     items.push(`<div class="legend-item"><span class="swatch" style="background:${DEFAULT_COLOR}"></span>Other / unknown</div>`);
   }
-  document.getElementById('legend').innerHTML = `<div class="legend-title">${escapeHtml(humanize(scheme.label))}</div>${items.join('')}`;
+  document.getElementById('legend').innerHTML = `<div class="legend-title">${escapeHtml(scheme.label)}</div>${items.join('')}`;
 }
 
 function applyScheme(schemeKey, { showDescription = false } = {}) {
@@ -119,7 +119,11 @@ function applyScheme(schemeKey, { showDescription = false } = {}) {
   });
   if (showDescription) {
     const descriptionEl = document.getElementById('filter-description');
-    descriptionEl.textContent = humanize(scheme.description);
+    // Drop everything from the em dash onward (e.g. the "— TALEN or
+    // CRISPR/CRISPR-Cas9" examples-list part of the technique description),
+    // keeping just the plain-language lead sentence. Internal hyphens in
+    // that lead sentence (e.g. "gene-editing") are still smoothed out.
+    descriptionEl.textContent = humanize(scheme.description.split('—')[0]).trim();
     descriptionEl.classList.add('visible');
   }
 }
@@ -137,7 +141,7 @@ filterControl.onAdd = function () {
   const div = L.DomUtil.create('div', 'filter-control');
   div.innerHTML = `
     <div class="filter-title">Categories</div>
-    ${Object.entries(COLOR_SCHEMES).map(([key, s]) => `<button type="button" class="filter-btn" data-scheme="${key}">${escapeHtml(humanize(s.label))}</button>`).join('')}
+    ${Object.entries(COLOR_SCHEMES).map(([key, s]) => `<button type="button" class="filter-btn" data-scheme="${key}">${escapeHtml(s.label)}</button>`).join('')}
   `;
   L.DomEvent.disableClickPropagation(div);
   div.querySelectorAll('.filter-btn').forEach((btn) => {
