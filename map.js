@@ -299,7 +299,7 @@ fetch('data/ge-crops.json')
 
       const marker = L.marker([loc.lat, loc.lng], { icon: makeMarkerIcon(DEFAULT_COLOR) }).addTo(map);
 
-      marker.bindTooltip(escapeHtml(innovation.innovation_name), {
+      marker.bindTooltip(escapeHtml(`${innovation.crop.common_name} (${innovation.crop.species})`), {
         direction: 'top',
         offset: [0, -10],
         className: 'ge-label'
