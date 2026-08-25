@@ -153,9 +153,31 @@ function escapeHtml(str) {
   }[c]));
 }
 
+// Displayed text should read cleanly with no raw hyphens/underscores: ISO
+// dates get formatted (e.g. "2024-06-12" -> "12 Jun 2024"), everything else
+// just has "-"/"_" swapped for spaces.
+function humanize(value) {
+  if (value === undefined || value === null || value === '') return value;
+  const str = String(value);
+
+  let m = str.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (m) {
+    const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+    return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+  }
+
+  m = str.match(/^(\d{4})-(\d{2})$/);
+  if (m) {
+    const d = new Date(Date.UTC(+m[1], +m[2] - 1, 1));
+    return d.toLocaleDateString('en-GB', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+  }
+
+  return str.replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
 function row(label, value) {
   if (value === undefined || value === null || value === '') return '';
-  return `<div class="row"><span class="label">${escapeHtml(label)}</span><span class="value">${escapeHtml(value)}</span></div>`;
+  return `<div class="row"><span class="label">${escapeHtml(label)}</span><span class="value">${escapeHtml(humanize(value))}</span></div>`;
 }
 
 function linkRow(label, url) {
@@ -177,7 +199,7 @@ function approvalBlock(a, idx, total) {
       ${row('Commercial since', a.commercial_since)}
       ${linkRow('Commercial source', a.commercial_source_url)}
       ${row('Last verified', a.last_verified)}
-      ${a.notes ? `<div class="row notes"><span class="label">Notes</span><span class="value">${escapeHtml(a.notes)}</span></div>` : ''}
+      ${a.notes ? `<div class="row notes"><span class="label">Notes</span><span class="value">${escapeHtml(humanize(a.notes))}</span></div>` : ''}
     </div>`;
 }
 
@@ -188,9 +210,8 @@ function detailHtml(innovation) {
 
   return `
     <div class="popup">
-      <h2>${escapeHtml(innovation.id)}</h2>
+      <h2>${escapeHtml(humanize(innovation.innovation_name))}</h2>
       <div class="section">
-        ${row('Innovation name', innovation.innovation_name)}
         ${row('Crop', `${innovation.crop.common_name} (${innovation.crop.species})`)}
         ${row('Trait', innovation.trait.description)}
         ${row('Trait category', innovation.trait.category)}
@@ -209,7 +230,7 @@ function detailHtml(innovation) {
         ${row('Type', innovation.developer.type)}
       </div>
       ${approvals}
-      ${innovation.location && innovation.location.place ? `<p class="loc-note">Marker location: ${escapeHtml(innovation.location.place)}</p>` : ''}
+      ${innovation.location && innovation.location.place ? `<p class="loc-note">Marker location: ${escapeHtml(humanize(innovation.location.place))}</p>` : ''}
     </div>`;
 }
 
