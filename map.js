@@ -100,11 +100,11 @@ legend.addTo(map);
 function updateLegend() {
   const scheme = COLOR_SCHEMES[activeSchemeKey];
   const usesDefault = markersData.some(({ innovation }) => !scheme.groups.some((g) => g.test(scheme.getValue(innovation))));
-  const items = scheme.groups.map((g) => `<div class="legend-item"><span class="swatch" style="background:${g.color}"></span>${escapeHtml(g.label)}</div>`);
+  const items = scheme.groups.map((g) => `<div class="legend-item"><span class="swatch" style="background:${g.color}"></span>${escapeHtml(humanize(g.label))}</div>`);
   if (usesDefault) {
     items.push(`<div class="legend-item"><span class="swatch" style="background:${DEFAULT_COLOR}"></span>Other / unknown</div>`);
   }
-  document.getElementById('legend').innerHTML = `<div class="legend-title">${escapeHtml(scheme.label)}</div>${items.join('')}`;
+  document.getElementById('legend').innerHTML = `<div class="legend-title">${escapeHtml(humanize(scheme.label))}</div>${items.join('')}`;
 }
 
 function applyScheme(schemeKey, { showDescription = false } = {}) {
@@ -119,7 +119,7 @@ function applyScheme(schemeKey, { showDescription = false } = {}) {
   });
   if (showDescription) {
     const descriptionEl = document.getElementById('filter-description');
-    descriptionEl.textContent = scheme.description;
+    descriptionEl.textContent = humanize(scheme.description);
     descriptionEl.classList.add('visible');
   }
 }
@@ -137,7 +137,7 @@ filterControl.onAdd = function () {
   const div = L.DomUtil.create('div', 'filter-control');
   div.innerHTML = `
     <div class="filter-title">Categories</div>
-    ${Object.entries(COLOR_SCHEMES).map(([key, s]) => `<button type="button" class="filter-btn" data-scheme="${key}">${escapeHtml(s.label)}</button>`).join('')}
+    ${Object.entries(COLOR_SCHEMES).map(([key, s]) => `<button type="button" class="filter-btn" data-scheme="${key}">${escapeHtml(humanize(s.label))}</button>`).join('')}
   `;
   L.DomEvent.disableClickPropagation(div);
   div.querySelectorAll('.filter-btn').forEach((btn) => {
