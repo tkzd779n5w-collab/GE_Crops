@@ -90,8 +90,8 @@
       "edit": {
         "technique": "CRISPR-Cas9",
         "sdn_class": "SDN-1",
-        "transgene_status": "transgene_free",
-        "transgene_status_source": "https://www.pairwise.com/news/pairwise-publishes-the-science-behind-its-first-product"
+        "transgene_status": "null_segregant",
+        "transgene_status_source": "https://www.aphis.usda.gov/biotechnology/downloads/reg_loi/20-168-07_air_response_signed.pdf"
       },
       "developer": {
         "name": "Pairwise",
@@ -106,14 +106,14 @@
           "regulatory_body": "USDA-APHIS",
           "approval_type": "commercial",
           "mechanism": "non_regulated_determination",
-          "decision_date": "2020-08",
-          "decision_source_url": "https://thespoon.tech/pairwise-gets-greenlight-from-usda-for-crispr-engineered-mustard-greens/",
-          "decision_source_type": "news",
+          "decision_date": "2020-08-12",
+          "decision_source_url": "https://www.aphis.usda.gov/biotechnology/downloads/reg_loi/20-168-07_air_response_signed.pdf",
+          "decision_source_type": "primary_regulatory",
           "commercial_status": "marketed",
           "commercial_since": "2023",
           "commercial_source_url": "https://www.fooddive.com/news/crispr-pairwise-conscious-greens-gmo-foodservice/650326/",
-          "last_verified": "2026-07-08",
-          "notes": "First CRISPR-edited food product on the US market. USDA/APHIS confirmed non-regulated status mid-August 2020; foodservice launch May 2023, retail rollout later in 2023. Exact APHIS letter date to be confirmed against the primary APHIS response."
+          "last_verified": "2026-09-11",
+          "notes": "CORRECTION: exact date and transgene status now confirmed against APHIS's signed primary letter (case 20-168-07). Pairwise's 'Am I Regulated?' inquiry was dated 16 Jun 2020; APHIS Deputy Administrator Bernadette Juarez signed the non-regulated determination on 12 Aug 2020 (previously only 'mid-August 2020' from secondary sources). The letter states Pairwise confirmed by PCR analysis 'the absence of the exogenous plasmid construct DNA' in the edited B. juncea lines, and that plants were self-fertilized with progeny selected from the segregating population - i.e. a transgenic plasmid WAS used to deliver the CRISPR-Cas9 components and was then bred out, making this a null segregant rather than transgene-free from the outset (previously misclassified as transgene_free; same underlying workflow as Corteva's waxy corn). First CRISPR-edited food product on the US market; foodservice launch May 2023, retail rollout later in 2023."
         }
       ]
     },
