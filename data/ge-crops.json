@@ -1,7 +1,7 @@
 {
   "meta": {
-    "version": "0.5",
-    "last_updated": "2026-08-05",
+    "version": "0.6",
+    "last_updated": "2026-09-11",
     "licence": "CC-BY-4.0",
     "inclusion_criteria": "Crops developed using site-directed nucleases (ZFN/TALEN/CRISPR), oligo-directed mutagenesis, or editing-derived cisgenesis, regardless of whether a transgene remains in the final line. Classical transgenic GM crops (random insertion by e.g. Agrobacterium or biolistics, with no site-directed nuclease) are excluded. NOTE: inclusion is decided on METHOD; the resulting product's transgene status is recorded separately in edit.transgene_status because it is of interest to users.",
     "scope_note": "Focus is on authorisation/clearance to cultivate or commercialise in the country where the crop is grown. Import- and food/feed-only authorisations are excluded. In the United States most editions receive a 'non-regulated' determination rather than an affirmative approval; this is captured in each approval's 'mechanism' field.",
@@ -265,11 +265,11 @@
           "decision_date": "2016-04",
           "decision_source_url": "https://geneticliteracyproject.org/2016/04/19/dupont-pioneer-plans-to-market-gene-edited-crispr-corn-usda-will-not-regulate-it-as-a-gmo/",
           "decision_source_type": "news",
-          "commercial_status": "unknown",
-          "commercial_since": "",
-          "commercial_source_url": "",
-          "last_verified": "2026-08-05",
-          "notes": "Pioneer's Dec-2015 'Regulated Article Letter of Inquiry' received an APHIS response in April 2016 confirming CRISPR-Cas9 waxy corn is not regulated under 7 CFR part 340 - one of the first CRISPR crops cleared in the US. Announced as DuPont Pioneer's first CRISPR-Cas commercial product (18 Apr 2016); a limited precommercial launch followed in the Midwest around 2019. Broad-market commercial availability and current sales status TO CONFIRM - not clearly evidenced in available sources despite the 2016 clearance."
+          "commercial_status": "early_commercialisation",
+          "commercial_since": "2016",
+          "commercial_source_url": "https://www.synbiobeta.com/read/dupont-pioneer-unveils-its-first-product-developed-through-crispr-cas",
+          "last_verified": "2026-09-11",
+          "notes": "Pioneer's Dec-2015 'Regulated Article Letter of Inquiry' received an APHIS response in April 2016 confirming CRISPR-Cas9 waxy corn is not regulated under 7 CFR part 340 - one of the first CRISPR crops cleared in the US. DuPont Pioneer's own 18 Apr 2016 announcement describes it as their 'first commercial agricultural product' developed via CRISPR-Cas and an 'initial offering' meant to lay the foundation for larger-volume future products - language indicating a real, if limited, initial market offering rather than just a regulatory clearance. A further precommercial launch followed in the Midwest around 2019. Full-scale/current distribution and sales volume TO CONFIRM - not clearly evidenced in available sources, hence 'early_commercialisation' rather than 'marketed'."
         },
         {
           "country": "Canada",
