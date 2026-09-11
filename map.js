@@ -29,13 +29,12 @@ const COLOR_SCHEMES = {
   },
   commercial_status: {
     label: 'Commercial status',
-    description: 'How far each crop has reached the market in the countries where it is approved — marketed, early commercialisation, approved but not yet marketed, or withdrawn.',
+    description: 'How far each crop has reached the market in the countries where it is approved — marketed, early commercialisation, or approved but not yet marketed.',
     getValue: (innovation) => (innovation.approvals || []).map((a) => a.commercial_status),
     groups: [
       { label: 'Marketed', color: '#2e7d32', test: (v) => v.includes('marketed') },
       { label: 'Early commercialisation', color: '#f39c12', test: (v) => v.includes('early_commercialisation') },
-      { label: 'Approved, not marketed', color: '#2980b9', test: (v) => v.includes('approved_not_marketed') },
-      { label: 'Withdrawn', color: '#7f8c8d', test: (v) => v.includes('withdrawn') }
+      { label: 'Approved, not marketed', color: '#2980b9', test: (v) => v.includes('approved_not_marketed') }
     ]
   },
   crop_type: {
