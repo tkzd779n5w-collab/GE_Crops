@@ -893,34 +893,19 @@
           "notes": "Initial BPI non-GMO exemption decision reported April 2023; variety-specific Certificates of Non-Coverage for events TRB011001 and TRB011002 followed 21 Jun 2024."
         },
         {
-          "country": "Japan",
-          "country_iso": "JP",
-          "regulatory_body": "Not specified in available sources (MHLW/MAFF notification pathway presumed, per Japan's standard genome-edited food process)",
-          "approval_type": "commercial",
-          "mechanism": "notification",
-          "decision_date": "2026-04-10",
-          "decision_source_url": "https://www.isaaa.org/kc/cropbiotechupdate/article/default.asp?ID=21775",
-          "decision_source_type": "news",
-          "commercial_status": "unknown",
-          "commercial_since": "",
-          "commercial_source_url": "",
-          "last_verified": "2026-08-05",
-          "notes": "Reported 10 Apr 2026 approval enabling import, sale and consumption in Japan. Regulatory mechanism inferred from Japan's general genome-edited-food notification pathway (as used for the Sanatech GABA tomato), NOT independently confirmed for this specific case - TO CONFIRM against a primary MHLW/MAFF source."
-        },
-        {
           "country": "Brazil",
           "country_iso": "BR",
-          "regulatory_body": "Not specified in available sources (CTNBio presumed)",
+          "regulatory_body": "Not named in Tropic's press release; Brazil's non-GMO biosafety determinations for gene-edited (non-transgenic) crops are typically issued by CTNBio (as with this catalogue's Corteva waxy corn entry), but that has NOT been independently confirmed as the specific body for this banana approval",
           "approval_type": "commercial",
           "mechanism": "unknown",
           "decision_date": "2026-04-10",
-          "decision_source_url": "https://www.isaaa.org/kc/cropbiotechupdate/article/default.asp?ID=21775",
-          "decision_source_type": "news",
+          "decision_source_url": "https://tropic.bio/04-2026-japan-brazil-approvals/",
+          "decision_source_type": "developer",
           "commercial_status": "unknown",
           "commercial_since": "",
           "commercial_source_url": "",
-          "last_verified": "2026-08-05",
-          "notes": "FLAGGED FOR VERIFICATION: reported 10 Apr 2026 as enabling the banana to be 'imported, sold and consumed' in Brazil, with one source additionally stating it may be 'grown in Brazil'. This catalogue's scope excludes import/food-only authorisations (see meta.scope_note); whether this approval covers domestic cultivation (in scope) or is import/sale-only (out of scope) is NOT independently confirmed from available sources. Retained here with this caveat rather than silently excluded, given the source ambiguity. This also revises this file's prior Brazil coverage_note (removed), which had recorded no qualifying gene-edited crop record as of 2026-07-08 - that finding may have predated or missed this Apr-2026 development."
+          "last_verified": "2026-09-11",
+          "notes": "RESOLVED: Tropic's own 10 Apr 2026 press release confirms the Brazil approval covers cultivation, not just import/sale - 'The approvals clear the way for Tropic's non-browning banana to be imported, sold, and consumed in both countries, and grown in Brazil.' This supersedes the earlier ambiguity flag. Note the identical sentence does NOT list 'grown' for Japan (only imported/sold/consumed there) - see below for why no Japan approval is recorded. This also revises this file's prior Brazil coverage_note (removed), which had recorded no qualifying gene-edited crop record as of 2026-07-08 - that finding predated this Apr-2026 development. EXCLUDED FROM THIS FILE: a Japan approval for this same banana was previously recorded here but has been removed - Tropic's own press release states the Japan approval covers import, sale and consumption ONLY, with no mention of domestic cultivation, which places it outside this catalogue's scope per meta.scope_note (import/food-only authorisations excluded)."
         }
       ]
     }
