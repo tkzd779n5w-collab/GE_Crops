@@ -201,7 +201,8 @@ function linkRow(label, url) {
 }
 
 function approvalBlock(a, idx, total) {
-  const heading = total > 1 ? `Approval ${idx + 1} — ${escapeHtml(a.country)}` : `Approval — ${escapeHtml(a.country)}`;
+  const country = escapeHtml(humanize(a.country));
+  const heading = total > 1 ? `Approval ${idx + 1} : ${country}` : `Approval : ${country}`;
   return `
     <div class="section">
       <h3>${heading}</h3>
@@ -336,7 +337,7 @@ fetch('data/ge-crops.json')
       const marker = L.marker([loc.lat, loc.lng], { icon: makeMarkerIcon(DEFAULT_COLOR) }).addTo(map);
 
       const cropLabel = escapeHtml(`${innovation.crop.common_name} (${innovation.crop.species})`);
-      const nameLabel = escapeHtml(innovation.innovation_name);
+      const nameLabel = escapeHtml(humanize(innovation.innovation_name));
       marker.bindTooltip(`${cropLabel}<br><span class="tooltip-subtitle">${nameLabel}</span>`, {
         direction: 'top',
         offset: [0, -10],
