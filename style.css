@@ -152,6 +152,20 @@ footer a {
   box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
 }
 
+/* Marker hover label: crop name on top, innovation name as a smaller
+   subtitle underneath, so two pins sharing a crop (e.g. two rice
+   varieties) are still distinguishable without clicking. */
+.ge-label {
+  text-align: center;
+}
+
+.ge-label .tooltip-subtitle {
+  display: block;
+  font-size: 0.75em;
+  color: var(--muted);
+  font-weight: 400;
+}
+
 /* Legend */
 .legend {
   background: #fff;
