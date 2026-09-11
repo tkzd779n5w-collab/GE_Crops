@@ -202,17 +202,17 @@
         {
           "country": "Philippines",
           "country_iso": "PH",
-          "regulatory_body": "Department of Agriculture - Bureau of Plant Industry (BPI)",
+          "regulatory_body": "Department of Agriculture - Bureau of Plant Industry (BPI), signed by BPI Director Dr. Gerald Glenn Panganiban",
           "approval_type": "commercial",
           "mechanism": "exemption",
-          "decision_date": "2024-06",
-          "decision_source_url": "https://www.isaaa.org/kc/cropbiotechupdate/article/default.asp?ID=20882",
+          "decision_date": "2024-05-02",
+          "decision_source_url": "https://www.isaaa.org/kc/cropbiotechupdate/article/default.asp?ID=20831",
           "decision_source_type": "news",
           "commercial_status": "unknown",
           "commercial_since": "",
           "commercial_source_url": "",
-          "last_verified": "2026-08-05",
-          "notes": "BPI issued a Certificate of Non-Coverage (non-GMO exemption) for Sanatech's high-GABA tomato under Memorandum Circular No. 8 s.2022 (Plant Breeding Innovations framework). Exact decision date reported only as 'June 2024' in secondary sources; local commercial availability not independently confirmed."
+          "last_verified": "2026-09-11",
+          "notes": "CORRECTED: prior decision_source_url mistakenly pointed to the banana approval article (ID=20882) instead of the tomato one (ID=20831) - fixed. BPI's Certificate of Non-Coverage was issued 2 May 2024 (not just 'June 2024' as previously recorded) under JDC No. 01 s.2021 (the DOST-DA-DENR-DOH-DILG joint circular establishing regulatory policy for genetically modified plants), via the Technical Consultation for Evaluation and Determination procedure set out in DA Memorandum Circular No. 08 s.2022 (the Plant Breeding Innovations framework). Signed by BPI Director Dr. Gerald Glenn Panganiban. Second gene-edited crop (after Tropic's banana) determined non-GMO in the Philippines. Local commercial availability not independently confirmed. Not yet found: the certificate document itself, only ISAAA's detailed secondary reporting of it and Sanatech's own (less detailed) press release at https://sanatech-seed.com/en/240524-2/."
         },
         {
           "country": "Canada",
