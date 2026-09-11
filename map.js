@@ -29,7 +29,7 @@ const COLOR_SCHEMES = {
   },
   commercial_status: {
     label: 'Commercial status',
-    description: 'How far each crop has reached the market in the countries where it is approved — marketed, early commercialisation, or approved but not yet marketed.',
+    description: 'How far each crop has reached the market in the countries where it is approved — marketed, or approved for commercialisation but not yet on shelves.',
     getValue: (innovation) => (innovation.approvals || []).map((a) => a.commercial_status),
     groups: [
       {
@@ -39,16 +39,10 @@ const COLOR_SCHEMES = {
         tooltip: 'For sale in at least one country, even if still in an earlier stage elsewhere — shows the crop’s most advanced status anywhere.'
       },
       {
-        label: 'Early commercialisation',
-        color: '#f39c12',
-        test: (v) => v.includes('early_commercialisation'),
-        tooltip: 'Commercialisation has started but isn’t a full launch yet — a partial or ramping rollout.'
-      },
-      {
-        label: 'Approved, not marketed',
+        label: 'Approved for commercialisation, not yet on shelves',
         color: '#2980b9',
-        test: (v) => v.includes('approved_not_marketed'),
-        tooltip: 'Regulatory clearance is confirmed, but the crop hasn’t yet reached farmers or shelves.'
+        test: (v) => v.includes('early_commercialisation') || v.includes('approved_not_marketed'),
+        tooltip: 'Regulatory clearance for commercial use is confirmed — commercialisation may be ramping up or fully pending — but the crop hasn’t yet reached farmers, shelves or consumers.'
       }
     ]
   },
