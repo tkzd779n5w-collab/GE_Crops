@@ -168,6 +168,10 @@ footer a {
   gap: 0.4rem;
 }
 
+.legend-item[title] {
+  cursor: help;
+}
+
 .legend .swatch {
   display: inline-block;
   width: 12px;

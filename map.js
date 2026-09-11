@@ -32,9 +32,24 @@ const COLOR_SCHEMES = {
     description: 'How far each crop has reached the market in the countries where it is approved — marketed, early commercialisation, or approved but not yet marketed.',
     getValue: (innovation) => (innovation.approvals || []).map((a) => a.commercial_status),
     groups: [
-      { label: 'Marketed', color: '#2e7d32', test: (v) => v.includes('marketed') },
-      { label: 'Early commercialisation', color: '#f39c12', test: (v) => v.includes('early_commercialisation') },
-      { label: 'Approved, not marketed', color: '#2980b9', test: (v) => v.includes('approved_not_marketed') }
+      {
+        label: 'Marketed',
+        color: '#2e7d32',
+        test: (v) => v.includes('marketed'),
+        tooltip: 'For sale in at least one country, even if still in an earlier stage elsewhere — shows the crop’s most advanced status anywhere.'
+      },
+      {
+        label: 'Early commercialisation',
+        color: '#f39c12',
+        test: (v) => v.includes('early_commercialisation'),
+        tooltip: 'Commercialisation has started but isn’t a full launch yet — a partial or ramping rollout.'
+      },
+      {
+        label: 'Approved, not marketed',
+        color: '#2980b9',
+        test: (v) => v.includes('approved_not_marketed'),
+        tooltip: 'Regulatory clearance is confirmed, but the crop hasn’t yet reached farmers or shelves.'
+      }
     ]
   },
   crop_type: {
@@ -99,9 +114,12 @@ legend.addTo(map);
 function updateLegend() {
   const scheme = COLOR_SCHEMES[activeSchemeKey];
   const usesDefault = markersData.some(({ innovation }) => !scheme.groups.some((g) => g.test(scheme.getValue(innovation))));
-  const items = scheme.groups.map((g) => `<div class="legend-item"><span class="swatch" style="background:${g.color}"></span>${escapeHtml(g.label)}</div>`);
+  const items = scheme.groups.map((g) => {
+    const title = g.tooltip ? ` title="${escapeHtml(g.tooltip)}"` : '';
+    return `<div class="legend-item"${title}><span class="swatch" style="background:${g.color}"></span>${escapeHtml(g.label)}</div>`;
+  });
   if (usesDefault) {
-    items.push(`<div class="legend-item"><span class="swatch" style="background:${DEFAULT_COLOR}"></span>Other / unknown</div>`);
+    items.push(`<div class="legend-item" title="${escapeHtml('No market status was reported, or it didn’t match any category above.')}"><span class="swatch" style="background:${DEFAULT_COLOR}"></span>Other / unknown</div>`);
   }
   document.getElementById('legend').innerHTML = `<div class="legend-title">${escapeHtml(scheme.label)}</div>${items.join('')}`;
 }
