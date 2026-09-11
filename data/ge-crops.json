@@ -246,8 +246,8 @@
       "edit": {
         "technique": "CRISPR-Cas9",
         "sdn_class": "SDN-1",
-        "transgene_status": "transgene_free",
-        "transgene_status_source": "https://geneticliteracyproject.org/2016/04/19/dupont-pioneer-plans-to-market-gene-edited-crispr-corn-usda-will-not-regulate-it-as-a-gmo/"
+        "transgene_status": "null_segregant",
+        "transgene_status_source": "https://cban.ca/wp-content/uploads/GM-Waxy-Corn-Corteva-product-profile-CBAN.pdf"
       },
       "developer": {
         "name": "DuPont Pioneer / Pioneer Hi-Bred International (now Corteva Agriscience)",
@@ -266,15 +266,15 @@
           "decision_source_url": "https://geneticliteracyproject.org/2016/04/19/dupont-pioneer-plans-to-market-gene-edited-crispr-corn-usda-will-not-regulate-it-as-a-gmo/",
           "decision_source_type": "news",
           "commercial_status": "early_commercialisation",
-          "commercial_since": "2016",
-          "commercial_source_url": "https://www.synbiobeta.com/read/dupont-pioneer-unveils-its-first-product-developed-through-crispr-cas",
+          "commercial_since": "2019",
+          "commercial_source_url": "https://cban.ca/wp-content/uploads/GM-Waxy-Corn-Corteva-product-profile-CBAN.pdf",
           "last_verified": "2026-09-11",
-          "notes": "Pioneer's Dec-2015 'Regulated Article Letter of Inquiry' received an APHIS response in April 2016 confirming CRISPR-Cas9 waxy corn is not regulated under 7 CFR part 340 - one of the first CRISPR crops cleared in the US. DuPont Pioneer's own 18 Apr 2016 announcement describes it as their 'first commercial agricultural product' developed via CRISPR-Cas and an 'initial offering' meant to lay the foundation for larger-volume future products - language indicating a real, if limited, initial market offering rather than just a regulatory clearance. A further precommercial launch followed in the Midwest around 2019. Full-scale/current distribution and sales volume TO CONFIRM - not clearly evidenced in available sources, hence 'early_commercialisation' rather than 'marketed'."
+          "notes": "CORRECTION (per CBAN's Apr-2021 product profile, citing Corteva's own May-2019 CRISPR Q&A and a 2018 OECD presentation): the CRISPR-Cas9 editing components were delivered via six plasmids fired into the corn genome by particle bombardment (a first-generation transgenic technique), and the resulting transgenic plants were then crossed and progeny screened to select lines with no foreign DNA remaining - a 'null segregant', not simply 'transgene-free' from the outset. Pioneer's Dec-2015 'Regulated Article Letter of Inquiry' received an APHIS response in April 2016 confirming the corn is not regulated under 7 CFR part 340. DuPont Pioneer's Apr-2016 announcement called it their 'first commercial agricultural product' via CRISPR-Cas, but CBAN reports Corteva 'launched a commercial pilot in 2019, for a projected 2020 commercial launch' and that, as of CBAN's April-2021 review, 'it is unclear when, or if' the company would fully commercialise it, and that the voluntary FDA pre-market consultation process had still not been completed. commercial_since revised from 2016 (announcement only) to 2019 (confirmed pilot launch) accordingly."
         },
         {
           "country": "Canada",
           "country_iso": "CA",
-          "regulatory_body": "Canadian Food Inspection Agency (CFIA)",
+          "regulatory_body": "Canadian Food Inspection Agency (CFIA); Health Canada (parallel food-novelty determination, same date)",
           "approval_type": "commercial",
           "mechanism": "non_regulated_determination",
           "decision_date": "2020-02-25",
@@ -283,8 +283,38 @@
           "commercial_status": "unknown",
           "commercial_since": "",
           "commercial_source_url": "",
-          "last_verified": "2026-08-05",
-          "notes": "CFIA non-novel determination for 'Next Generation Waxy corn', developer listed as Pioneer Hi-Bred Canada Company."
+          "last_verified": "2026-09-11",
+          "notes": "CFIA non-novel determination for 'Next Generation Waxy corn', developer listed as Pioneer Hi-Bred Canada Company. CBAN's product profile independently corroborates this exact date via Health Canada's parallel 'List of non-novel determinations for food and food ingredients' (decision made public September 2020)."
+        },
+        {
+          "country": "Brazil",
+          "country_iso": "BR",
+          "regulatory_body": "CTNBio (Comissao Tecnica Nacional de Biosseguranca)",
+          "approval_type": "commercial",
+          "mechanism": "exemption",
+          "decision_date": "2018",
+          "decision_source_url": "https://cban.ca/wp-content/uploads/GM-Waxy-Corn-Corteva-product-profile-CBAN.pdf",
+          "decision_source_type": "news",
+          "commercial_status": "unknown",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-09-11",
+          "notes": "CTNBio Ruling No. 6.208/2018 (Process n. 01250.033737/2018-67, applicant DuPont do Brasil S.A.) determined the waxy corn is not a GMO and therefore not subject to Brazil's GM biosafety regulations. Exact day/month of the ruling not given in the secondary source (CBAN); only the year is confirmed. Brazilian commercial availability not independently confirmed."
+        },
+        {
+          "country": "Argentina",
+          "country_iso": "AR",
+          "regulatory_body": "Not named in available sources (Argentina's biotech case-by-case determinations are handled by CONABIA per this catalogue's own coverage-note research, but that has NOT been independently confirmed as the specific body for this product)",
+          "approval_type": "commercial",
+          "mechanism": "exemption",
+          "decision_date": "",
+          "decision_source_url": "https://cban.ca/wp-content/uploads/GM-Waxy-Corn-Corteva-product-profile-CBAN.pdf",
+          "decision_source_type": "news",
+          "commercial_status": "unknown",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-09-11",
+          "notes": "WEAKER SOURCING THAN OTHER APPROVALS IN THIS FILE: CBAN's profile quotes a Corteva company presentation (\"Agriculture at a Crossroads\", 28 May 2019) stating regulators in Argentina, Brazil and Chile confirmed the product would not be considered a GMO under each country's law if no foreign DNA is present. Unlike Brazil (which has a named CTNBio ruling number), no specific Argentine regulatory act, agency confirmation, or date has been independently located - this entry rests on the company's own unverified claim as relayed by CBAN. decision_date intentionally left blank. NOTE: Corteva makes the identical claim for Chile, but a Chile approval is deliberately NOT recorded here - see the Chile coverage_note, whose own research found Chile's regulatory model to be structurally export-only (a non-GMO classification there permits seed multiplication for re-export, not domestic cultivation), which would put it outside this catalogue's in-scope criteria even if the classification itself is real."
         }
       ]
     },
@@ -923,30 +953,17 @@
       ]
     },
     {
-      "country": "Argentina",
-      "country_iso": "AR",
-      "status": "no_qualifying_records",
-      "framework_stance": "case_by_case_permissive",
-      "as_of": "2026-07-08",
-      "key_instrument": "Resolution 173/2015 (the 'Argentina model'); CONABIA case-by-case determinations",
-      "explanation": "World's first NBT framework and regional model. CONABIA has issued numerous 'non-GMO' determinations (e.g. Neocrop high-fibre/amylose wheat, Sept 2025), but a non-GMO determination is a regulatory classification, not evidence of commercial cultivation - most determined products are advanced lines still heading to the field. No gene-edited crop confirmed as commercially cultivated as of the search date. NOTE: Argentina's flagship 'GM wheat' HB4 is TRANSGENIC (inserted sunflower HaHB4 gene) and is therefore out of scope; it should not be recorded as a gene-edited crop.",
-      "sources": [
-        "https://crispr-gene-editing-regs-tracker.geneticliteracyproject.org/argentina-crops-food/",
-        "https://neocroptech.com/en/neocrop-obtains-green-light-for-the-first-crispr-edited-wheat-in-argentina/",
-        "https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2023.1209308/full"
-      ]
-    },
-    {
       "country": "Chile",
       "country_iso": "CL",
       "status": "no_qualifying_records",
       "framework_stance": "export_only",
-      "as_of": "2026-07-08",
+      "as_of": "2026-09-11",
       "key_instrument": "SAG Resolution No. 1523/2001; 2017 NBT case-by-case approach",
-      "explanation": "SAG treats edits with no 'new combination of genetic material' as non-GMO on a case-by-case basis, but Chile's model is structurally export-oriented: environmental release of GE seed is permitted only for seed multiplication that is re-exported, not for domestic commercial cultivation. Chile is a major GE seed exporter (5th largest seed producer globally) but grows no gene-edited crop for domestic commercial use. Zero qualifying records by design.",
+      "explanation": "SAG treats edits with no 'new combination of genetic material' as non-GMO on a case-by-case basis, but Chile's model is structurally export-oriented: environmental release of GE seed is permitted only for seed multiplication that is re-exported, not for domestic commercial cultivation. Chile is a major GE seed exporter (5th largest seed producer globally) but grows no gene-edited crop for domestic commercial use. Zero qualifying records by design. UPDATE: Corteva has separately claimed (per a CBAN product profile citing Corteva's own 2019 presentation) that Chilean regulators confirmed its CRISPR waxy corn is not a GMO. This is NOT recorded as a qualifying approval in this catalogue given Chile's export-only structural framework described above - a non-GMO classification there does not, by itself, establish in-scope domestic commercial cultivation, and no evidence of Chilean domestic cultivation was found.",
       "sources": [
         "https://crispr-gene-editing-regs-tracker.geneticliteracyproject.org/chile-crops-food/",
-        "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2021.630396/full"
+        "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2021.630396/full",
+        "https://cban.ca/wp-content/uploads/GM-Waxy-Corn-Corteva-product-profile-CBAN.pdf"
       ]
     },
     {
