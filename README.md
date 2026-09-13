@@ -1,4 +1,4 @@
-# Gene-Edited Crops Atlas
+# Gene-Edited Crops
 
 Interactive point map of commercially approved gene-edited crops (CRISPR/TALEN/SDN-1), one marker per innovation. Inspired by [EJAtlas](https://ejatlas.org/).
 
