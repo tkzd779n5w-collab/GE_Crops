@@ -1,7 +1,7 @@
 {
   "meta": {
-    "version": "0.6",
-    "last_updated": "2026-09-11",
+    "version": "0.7",
+    "last_updated": "2026-09-16",
     "licence": "CC-BY-4.0",
     "inclusion_criteria": "Crops developed using site-directed nucleases (ZFN/TALEN/CRISPR), oligo-directed mutagenesis, or editing-derived cisgenesis, regardless of whether a transgene remains in the final line. Classical transgenic GM crops (random insertion by e.g. Agrobacterium or biolistics, with no site-directed nuclease) are excluded. NOTE: inclusion is decided on METHOD; the resulting product's transgene status is recorded separately in edit.transgene_status because it is of interest to users.",
     "scope_note": "Focus is on authorisation/clearance to cultivate or commercialise in the country where the crop is grown. Import- and food/feed-only authorisations are excluded. In the United States most editions receive a 'non-regulated' determination rather than an affirmative approval; this is captured in each approval's 'mechanism' field.",
@@ -624,6 +624,48 @@
           "commercial_source_url": "",
           "last_verified": "2026-08-05",
           "notes": "Confirmed as meeting Precision Bred Organism criteria under the PROBITY project; enables growing on a small number of selected farms and processing in real-world food manufacturing trials, pending separate FSA food/feed safety review. Not yet a general commercial release."
+        }
+      ]
+    },
+    {
+      "id": "jic-sunshine-tomato-uk",
+      "innovation_name": "Sunshine Tomato (biofortified provitamin D3 tomato)",
+      "location": { "lat": 52.6280, "lng": 1.2200, "place": "Norwich, England, UK (approximate — John Innes Centre, Norwich Research Park)" },
+      "crop": {
+        "common_name": "Tomato",
+        "species": "Solanum lycopersicum"
+      },
+      "trait": {
+        "description": "Biofortified to accumulate high levels of provitamin D3 in fruit and leaves (converts to vitamin D3 on UVB/sunlight exposure), via knockout of the Sl7-DR2 gene (7-dehydrocholesterol reductase 2, Solyc06g074090); developed in the Money Maker tomato cultivar to address dietary vitamin D deficiency.",
+        "category": "nutritional_quality"
+      },
+      "edit": {
+        "technique": "CRISPR-Cas9",
+        "sdn_class": "SDN-1",
+        "transgene_status": "null_segregant",
+        "transgene_status_source": "https://www.gov.uk/government/publications/precision-bred-organism-marketing-notice-reference-pbm26soly001/precision-bred-organism-marketing-notice-reference-pbm26soly001"
+      },
+      "developer": {
+        "name": "John Innes Centre (Professor Cathie Martin's laboratory); bioavailability testing with the Quadram Institute",
+        "country": "United Kingdom",
+        "country_iso": "GB",
+        "type": "public_research_institute"
+      },
+      "approvals": [
+        {
+          "country": "United Kingdom",
+          "country_iso": "GB",
+          "regulatory_body": "DEFRA / Advisory Committee on Releases to the Environment (ACRE), under the Genetic Technology (Precision Breeding) Act 2023",
+          "approval_type": "commercial",
+          "mechanism": "exemption",
+          "decision_date": "2026-08-27",
+          "decision_source_url": "https://www.gov.uk/government/publications/precision-bred-organism-marketing-notice-reference-pbm26soly001/precision-bred-organism-marketing-notice-reference-pbm26soly001",
+          "decision_source_type": "primary_regulatory",
+          "commercial_status": "approved_not_marketed",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-09-16",
+          "notes": "Official Precision Bred Organism marketing notice reference PBM/26/SOLY/001, dated 27 Aug 2026 per gov.uk (press coverage from John Innes Centre and Marks & Clerk reported the announcement 2-3 Sept 2026 - using the primary gov.uk publication date here). Believed to be the first precision-bred tomato to receive marketing approval under England's post-Brexit precision-breeding regime, and the first PBO crop overall from the John Innes Centre. The notice explicitly covers commercial marketing authorisation (not just a field trial). A 108-base-pair deletion was introduced in exon 2 of Sl7-DR2 via CRISPR-Cas9 with two guide RNAs, delivered using Agrobacterium tumefaciens (a transgenic delivery method); resequencing confirmed no off-target mutations and no transgenic sequences remain in the final plants - a null segregant, consistent with how this catalogue classifies the same underlying workflow in Corteva's waxy corn and Pairwise's mustard greens entries. Human bioavailability trials of a tomato soup made from this variety began Sept 2025 via the Quadram Institute. Separate Food Standards Agency approval for human consumption is still pending as of the source dates, so not yet commercially marketed despite the PBO marketing notice."
         }
       ]
     },
