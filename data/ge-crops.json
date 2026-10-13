@@ -1,7 +1,7 @@
 {
   "meta": {
-    "version": "0.7",
-    "last_updated": "2026-09-16",
+    "version": "0.8",
+    "last_updated": "2026-10-13",
     "licence": "CC-BY-4.0",
     "inclusion_criteria": "Crops developed using site-directed nucleases (ZFN/TALEN/CRISPR), oligo-directed mutagenesis, or editing-derived cisgenesis, regardless of whether a transgene remains in the final line. Classical transgenic GM crops (random insertion by e.g. Agrobacterium or biolistics, with no site-directed nuclease) are excluded. NOTE: inclusion is decided on METHOD; the resulting product's transgene status is recorded separately in edit.transgene_status because it is of interest to users.",
     "scope_note": "Focus is on authorisation/clearance to cultivate or commercialise in the country where the crop is grown. Import- and food/feed-only authorisations are excluded. In the United States most editions receive a 'non-regulated' determination rather than an affirmative approval; this is captured in each approval's 'mechanism' field.",
@@ -892,7 +892,7 @@
         "category": "consumer_quality"
       },
       "edit": {
-        "technique": "CRISPR (GEiGS - Gene Editing-induced Gene Silencing platform)",
+        "technique": "CRISPR-Cas9",
         "sdn_class": "SDN-1",
         "transgene_status": "unknown",
         "transgene_status_source": ""
@@ -911,13 +911,13 @@
           "approval_type": "commercial",
           "mechanism": "non_regulated_determination",
           "decision_date": "2023-11-14",
-          "decision_source_url": "https://www.nongmoproject.org/blog/new-gmo-alert-crispr-crops-are-unregulated-and-under-the-radar/",
-          "decision_source_type": "news",
+          "decision_source_url": "https://www.aphis.usda.gov/sites/default/files/22-238-01rsr-review-response.pdf",
+          "decision_source_type": "primary_regulatory",
           "commercial_status": "marketed",
           "commercial_since": "2025",
-          "commercial_source_url": "https://tropic.bio/tropics-non-browning-gene-edited-banana-cleared-for-production-in-the-philippines/",
-          "last_verified": "2026-08-05",
-          "notes": "APHIS listed the non-browning banana among non-regulated GE crop/trait determinations published 14 Nov 2023. Tropic states it has regulatory determinations, notifications or exemptions in 11 countries in total; only those independently corroborated below are listed as separate approvals. Commercially launched in 2025 per company statements (market described as the first new banana variety in 75+ years)."
+          "commercial_source_url": "https://tropic.bio/04-2026-japan-brazil-approvals/",
+          "last_verified": "2026-10-13",
+          "notes": "SOURCE UPGRADED to the signed APHIS letter itself (Regulatory Status Review 22-238-01rsr, signed 14 Nov 2023 by APHIS Deputy Administrator Bernadette Juarez; previously cited a secondary blog post). The letter reviewed a banana with loss of function of the polyphenol oxidase-2 (PPO2) gene made by CRISPR-Cas9, and states it also contains 'a selectable marker claimed as CBI', and found it is not subject to regulation under 7 CFR part 340. NOTE ON TRANSGENE STATUS: this conflicts with the UK precision breeding notice (reference PBM/26/MUAC/001), which describes line TRB011002 as non-transgenic with no plasmid DNA integrated. They may be different lines, so the innovation-level transgene status is left as unknown. Tropic states it has regulatory determinations, notifications or exemptions in 11 countries in total; only some are listed as separate approvals here. COMMERCIAL STATUS CAVEAT: Tropic's April 2026 press release says the banana 'launched commercially in 2025' without naming a country, while a March 2026 AgFunderNews report describes consumer launches in the US and Canada as planned for 2026, so 'marketed' in the US rests on the company's statement alone."
         },
         {
           "country": "Philippines",
@@ -947,7 +947,52 @@
           "commercial_since": "",
           "commercial_source_url": "",
           "last_verified": "2026-09-11",
-          "notes": "RESOLVED: Tropic's own 10 Apr 2026 press release confirms the Brazil approval covers cultivation, not just import/sale - 'The approvals clear the way for Tropic's non-browning banana to be imported, sold, and consumed in both countries, and grown in Brazil.' This supersedes the earlier ambiguity flag. Note the identical sentence does NOT list 'grown' for Japan (only imported/sold/consumed there) - see below for why no Japan approval is recorded. This also revises this file's prior Brazil coverage_note (removed), which had recorded no qualifying gene-edited crop record as of 2026-07-08 - that finding predated this Apr-2026 development. EXCLUDED FROM THIS FILE: a Japan approval for this same banana was previously recorded here but has been removed - Tropic's own press release states the Japan approval covers import, sale and consumption ONLY, with no mention of domestic cultivation, which places it outside this catalogue's scope per meta.scope_note (import/food-only authorisations excluded)."
+          "notes": "RESOLVED: Tropic's own 10 Apr 2026 press release confirms the Brazil approval covers cultivation, not just import/sale - 'The approvals clear the way for Tropic's non-browning banana to be imported, sold, and consumed in both countries, and grown in Brazil.' This supersedes the earlier ambiguity flag. Note the identical sentence does NOT list 'grown' for Japan (only imported/sold/consumed there) - see below for why no Japan approval is recorded. This also revises this file's prior Brazil coverage_note (removed), which had recorded no qualifying gene-edited crop record as of 2026-07-08 - that finding predated this Apr-2026 development. EXCLUDED FROM THIS FILE: a Japan approval for this same banana was previously recorded here but has been removed - Tropic's own press release states the Japan approval covers import, sale and consumption ONLY, with no mention of domestic cultivation, which places it outside this catalogue's scope per meta.scope_note (import/food-only authorisations excluded). The same applies to the UK: Defra confirmed precision bred status for this banana (marketing notice PBM/26/MUAC/001, confirmation letter dated 17 Jul 2026, published on GOV.UK 25 Sep 2026), but the notice states the fruit is 'intended for import, retail, and consumption' and the Food Standards Agency check is still pending, so it is also excluded as an import and food-use authorisation."
+        },
+        {
+          "country": "Honduras",
+          "country_iso": "HN",
+          "regulatory_body": "SENASA, on the advice of the National Committee on Biotechnology and Biosecurity (NCBB), reportedly under its simplified procedure for genome-edited products (Agreement 8-SENASA-2019)",
+          "approval_type": "commercial",
+          "mechanism": "unknown",
+          "decision_date": "2022",
+          "decision_source_url": "https://www.nongmoproject.org/blog/new-gmo-alert-peeling-back-the-science-on-bananas/",
+          "decision_source_type": "news",
+          "commercial_status": "unknown",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-10-13",
+          "notes": "WEAKLY SOURCED, ADDED FOR REVIEW. AgFunderNews (12 Mar 2026) lists Honduras among the countries where Tropic 'has secured regulatory approvals for the bananas', in its non-browning banana section. A Non-GMO Project blog post, citing a USDA Foreign Agricultural Service report (Agricultural Biotechnology Annual, Honduras, HO2024-0008), says three Tropic bananas engineered for reduced browning and extended shelf life were approved in 2022, with one approved for commercial production and two experimental. A summary of a later USDA report (HO2025-0008) reportedly says the NCBB approved two Tropic varieties with delayed maturation in 2025. The USDA PDFs could not be read as text here, so it is NOT confirmed which approval, if any, covers the non-browning line, whether it is commercial or experimental, or the exact date; the 2022 year comes from secondary reporting only and approval_type 'commercial' follows Tropic's description. The legal classification is also disputed: Tropic calls the bananas non-GMO, while the Non-GMO Project lists them as GMOs in Honduras."
+        },
+        {
+          "country": "Colombia",
+          "country_iso": "CO",
+          "regulatory_body": "Not identified (no ICA decision found). Colombia's gene-editing framework is ICA Resolution 29299/2018, broadened by ICA Resolution 00022991 of 11 Nov 2022",
+          "approval_type": "commercial",
+          "mechanism": "unknown",
+          "decision_date": "",
+          "decision_source_url": "https://agfundernews.com/tropic-bags-105m-to-scale-gene-edited-bananas-deploy-tr4-resistant-bananas-in-2027",
+          "decision_source_type": "news",
+          "commercial_status": "unknown",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-10-13",
+          "notes": "WEAKLY SOURCED, ADDED FOR REVIEW. The only evidence is trade press: AgFunderNews (12 Mar 2026) lists Colombia among the countries where Tropic 'has secured regulatory approvals for the bananas', and other outlets repeat it. No ICA resolution, date, reference number or legal pathway was found, so the mechanism, date and scope (cultivation versus import) are all unconfirmed, and approval_type 'commercial' is assumed from Tropic's description. This entry replaces Colombia's earlier 'no qualifying records' coverage note (removed). That note's framework description was: case by case procedure under ICA Resolution 29299/2018, broadened by Resolution 00022991 (11 Nov 2022), where only products with stable foreign genetic material are classed as LMOs and transgene-free edits are handled as conventional."
+        },
+        {
+          "country": "Canada",
+          "country_iso": "CA",
+          "regulatory_body": "Not identified. The banana did not appear on CFIA's non-novel products register when last checked, and Health Canada's separate Transparency Initiative list could not be checked",
+          "approval_type": "commercial",
+          "mechanism": "unknown",
+          "decision_date": "",
+          "decision_source_url": "https://tropic.bio/04-2026-japan-brazil-approvals/",
+          "decision_source_type": "developer",
+          "commercial_status": "unknown",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-10-13",
+          "notes": "WEAKLY SOURCED, ADDED FOR REVIEW. The only evidence is Tropic's own statement (10 Apr 2026 press release) that it holds 'regulatory determinations, notifications or exemptions' in eleven countries 'including the USA, Canada and the Philippines', repeated by AgFunderNews. Which Canadian pathway applied (CFIA, a Health Canada novelty determination, or a Transparency Initiative filing), the date, and whether cultivation is covered are all unconfirmed. Reports differ on whether a consumer launch has happened: one March 2026 report says US and Canada launches were planned for 2026."
         }
       ]
     }
@@ -991,19 +1036,6 @@
         "https://crispr-gene-editing-regs-tracker.geneticliteracyproject.org/chile-crops-food/",
         "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2021.630396/full",
         "https://cban.ca/wp-content/uploads/GM-Waxy-Corn-Corteva-product-profile-CBAN.pdf"
-      ]
-    },
-    {
-      "country": "Colombia",
-      "country_iso": "CO",
-      "status": "no_qualifying_records",
-      "framework_stance": "case_by_case_permissive",
-      "as_of": "2026-07-08",
-      "key_instrument": "ICA Resolution 29299/2018, superseded/broadened by ICA Resolution 00022991 (11 Nov 2022)",
-      "explanation": "Case-by-case procedure; only products with stable foreign genetic material are classified as LMOs, transgene-free edits handled as conventional. Framework resembles the Argentine text. No gene-edited crop confirmed as commercially cultivated as of the search date.",
-      "sources": [
-        "https://crispr-gene-editing-regs-tracker.geneticliteracyproject.org/argentina-crops-food/",
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8316157/"
       ]
     },
     {
