@@ -14,7 +14,7 @@
       "approvals.commercial_since": "Year (or date) the crop was first grown/marketed in THIS country. Blank if not yet on-market or unknown.",
       "approvals.source_type / decision_source_type": "primary_regulatory | gain_report | bch | developer | news",
       "coverage_notes": "Top-level array recording jurisdictions searched that yielded NO qualifying crop records, so that a confirmed absence is distinguishable from an unsearched country. framework_stance summarises the regulatory posture (permissive | case_by_case_permissive | export_only | restrictive | moratorium_with_emerging_carveout | constitutional_constraint_with_carveout | prohibition).",
-      "location": "Added for mapping purposes (not in the original source dataset). Approximate coordinates of the developer's headquarters/origin city, used to place a single point marker per innovation. Not the precise field/cultivation site."
+      "location": "Approximate coordinates of the developer's headquarters/origin city, used to place a single point marker per innovation. Not the precise field/cultivation site."
     }
   },
   "innovations": [
@@ -113,7 +113,7 @@
           "commercial_since": "2023",
           "commercial_source_url": "https://www.fooddive.com/news/crispr-pairwise-conscious-greens-gmo-foodservice/650326/",
           "last_verified": "2026-09-11",
-          "notes": "CORRECTION: exact date and transgene status now confirmed against APHIS's signed primary letter (case 20-168-07). Pairwise's 'Am I Regulated?' inquiry was dated 16 Jun 2020; APHIS Deputy Administrator Bernadette Juarez signed the non-regulated determination on 12 Aug 2020 (previously only 'mid-August 2020' from secondary sources). The letter states Pairwise confirmed by PCR analysis 'the absence of the exogenous plasmid construct DNA' in the edited B. juncea lines, and that plants were self-fertilized with progeny selected from the segregating population - i.e. a transgenic plasmid WAS used to deliver the CRISPR-Cas9 components and was then bred out, making this a null segregant rather than transgene-free from the outset (previously misclassified as transgene_free; same underlying workflow as Corteva's waxy corn). First CRISPR-edited food product on the US market; foodservice launch May 2023, retail rollout later in 2023."
+          "notes": "Exact date and transgene status now confirmed against APHIS's signed primary letter (case 20-168-07). Pairwise's 'Am I Regulated?' inquiry was dated 16 Jun 2020; APHIS Deputy Administrator Bernadette Juarez signed the non-regulated determination on 12 Aug 2020 (previously only 'mid-August 2020' from secondary sources). The letter states Pairwise confirmed by PCR analysis 'the absence of the exogenous plasmid construct DNA' in the edited B. juncea lines, and that plants were self-fertilized with progeny selected from the segregating population - i.e. a transgenic plasmid WAS used to deliver the CRISPR-Cas9 components and was then bred out, making this a null segregant rather than transgene-free from the outset (previously misclassified as transgene_free; same underlying workflow as Corteva's waxy corn). First CRISPR-edited food product on the US market; foodservice launch May 2023, retail rollout later in 2023."
         }
       ]
     },
@@ -155,7 +155,7 @@
           "commercial_since": "2023",
           "commercial_source_url": "https://innovativegenomics.org/news/crispr-in-agriculture-2024/",
           "last_verified": "2026-07-08",
-          "notes": "Deregulated by USDA; first commercialisation efforts began 2023. Combines CRISPR edits with conventional breeding. Exact APHIS determination date and the transgene status of the marketed line still TO CONFIRM against primary sources."
+          "notes": "Deregulated by USDA; first commercialisation efforts began 2023. Combines CRISPR edits with conventional breeding. Exact APHIS determination date and the transgene status of the marketed line still to confirm against primary sources."
         }
       ]
     },
@@ -197,7 +197,7 @@
           "commercial_since": "2021",
           "commercial_source_url": "https://sanatech-seed.com/en/20210915-2/",
           "last_verified": "2026-07-08",
-          "notes": "World's first commercialised genome-edited food crop. Under Japan's 2019 guidelines, SDN-1 products with no foreign DNA are not treated as GMOs but require notification to MHLW and an information filing with MAFF; notification accepted 11 Dec 2020. Seedlings distributed to home gardeners May 2021; fruit commercial sales from 15 Sept 2021. Later certified a Food with Functional Claims by the Consumer Affairs Agency on 30 Nov 2022 (Notification H617). Sold only in Japan. NOTE: two genome-edited fish (red sea bream; tiger puffer - Regional Fish Institute) are also marketed in Japan but are excluded from this CROP catalogue."
+          "notes": "World's first commercialised genome-edited food crop. Under Japan's 2019 guidelines, SDN-1 products with no foreign DNA are not treated as GMOs but require notification to MHLW and an information filing with MAFF; notification accepted 11 Dec 2020. Seedlings distributed to home gardeners May 2021; fruit commercial sales from 15 Sept 2021. Later certified a Food with Functional Claims by the Consumer Affairs Agency on 30 Nov 2022 (Notification H617). Sold only in Japan."
         },
         {
           "country": "Philippines",
@@ -212,7 +212,7 @@
           "commercial_since": "",
           "commercial_source_url": "",
           "last_verified": "2026-09-11",
-          "notes": "CORRECTED: prior decision_source_url mistakenly pointed to the banana approval article (ID=20882) instead of the tomato one (ID=20831) - fixed. BPI's Certificate of Non-Coverage was issued 2 May 2024 (not just 'June 2024' as previously recorded) under JDC No. 01 s.2021 (the DOST-DA-DENR-DOH-DILG joint circular establishing regulatory policy for genetically modified plants), via the Technical Consultation for Evaluation and Determination procedure set out in DA Memorandum Circular No. 08 s.2022 (the Plant Breeding Innovations framework). Signed by BPI Director Dr. Gerald Glenn Panganiban. Second gene-edited crop (after Tropic's banana) determined non-GMO in the Philippines. Local commercial availability not independently confirmed. Not yet found: the certificate document itself, only ISAAA's detailed secondary reporting of it and Sanatech's own (less detailed) press release at https://sanatech-seed.com/en/240524-2/."
+          "notes": "Second gene-edited crop (after Tropic's banana) determined non-GMO in the Philippines. Local commercial availability not independently confirmed. Also mentioned in Sanatech's own press release at https://sanatech-seed.com/en/240524-2/."
         },
         {
           "country": "Canada",
@@ -227,7 +227,7 @@
           "commercial_since": "",
           "commercial_source_url": "",
           "last_verified": "2026-08-05",
-          "notes": "CFIA non-novel determination for 'High GABA Tomato (#87-17)'. CFIA's register lists the developer as 'Sanatech Life Science Co., Ltd.' rather than 'Sanatech Seed Co., Ltd.' as in the original Japan filing - likely the same corporate group under a variant/updated name, TO CONFIRM. Canadian commercial launch not independently confirmed."
+          "notes": "CFIA non-novel determination for 'High GABA Tomato (#87-17)'. CFIA's register lists the developer as 'Sanatech Life Science Co., Ltd.' rather than 'Sanatech Seed Co., Ltd.' as in the original Japan filing."
         }
       ]
     },
@@ -269,7 +269,7 @@
           "commercial_since": "2019",
           "commercial_source_url": "https://cban.ca/wp-content/uploads/GM-Waxy-Corn-Corteva-product-profile-CBAN.pdf",
           "last_verified": "2026-09-11",
-          "notes": "CORRECTION (per CBAN's Apr-2021 product profile, citing Corteva's own May-2019 CRISPR Q&A and a 2018 OECD presentation): the CRISPR-Cas9 editing components were delivered via six plasmids fired into the corn genome by particle bombardment (a first-generation transgenic technique), and the resulting transgenic plants were then crossed and progeny screened to select lines with no foreign DNA remaining - a 'null segregant', not simply 'transgene-free' from the outset. Pioneer's Dec-2015 'Regulated Article Letter of Inquiry' received an APHIS response in April 2016 confirming the corn is not regulated under 7 CFR part 340. DuPont Pioneer's Apr-2016 announcement called it their 'first commercial agricultural product' via CRISPR-Cas, but CBAN reports Corteva 'launched a commercial pilot in 2019, for a projected 2020 commercial launch' and that, as of CBAN's April-2021 review, 'it is unclear when, or if' the company would fully commercialise it, and that the voluntary FDA pre-market consultation process had still not been completed. commercial_since revised from 2016 (announcement only) to 2019 (confirmed pilot launch) accordingly."
+          "notes": "Per CBAN's Apr-2021 product profile, citing Corteva's own May-2019 CRISPR Q&A and a 2018 OECD presentation: the CRISPR-Cas9 editing components were delivered via six plasmids fired into the corn genome by particle bombardment (a first-generation transgenic technique), and the resulting transgenic plants were then crossed and progeny screened to select lines with no foreign DNA remaining - a 'null segregant', not simply 'transgene-free' from the outset. Pioneer's Dec-2015 'Regulated Article Letter of Inquiry' received an APHIS response in April 2016 confirming the corn is not regulated under 7 CFR part 340. DuPont Pioneer's Apr-2016 announcement called it their 'first commercial agricultural product' via CRISPR-Cas, but CBAN reports Corteva 'launched a commercial pilot in 2019, for a projected 2020 commercial launch' and that, as of CBAN's April-2021 review, 'it is unclear when, or if' the company would fully commercialise it, and that the voluntary FDA pre-market consultation process had still not been completed."
         },
         {
           "country": "Canada",
@@ -314,7 +314,7 @@
           "commercial_since": "",
           "commercial_source_url": "",
           "last_verified": "2026-09-11",
-          "notes": "WEAKER SOURCING THAN OTHER APPROVALS IN THIS FILE: CBAN's profile quotes a Corteva company presentation (\"Agriculture at a Crossroads\", 28 May 2019) stating regulators in Argentina, Brazil and Chile confirmed the product would not be considered a GMO under each country's law if no foreign DNA is present. Unlike Brazil (which has a named CTNBio ruling number), no specific Argentine regulatory act, agency confirmation, or date has been independently located - this entry rests on the company's own unverified claim as relayed by CBAN. decision_date intentionally left blank. NOTE: Corteva makes the identical claim for Chile, but a Chile approval is deliberately NOT recorded here - see the Chile coverage_note, whose own research found Chile's regulatory model to be structurally export-only (a non-GMO classification there permits seed multiplication for re-export, not domestic cultivation), which would put it outside this catalogue's in-scope criteria even if the classification itself is real."
+          "notes": "CBAN's profile quotes a Corteva company presentation (\"Agriculture at a Crossroads\", 28 May 2019) stating regulators in Argentina, Brazil and Chile confirmed the product would not be considered a GMO under each country's law if no foreign DNA is present. Unlike Brazil (which has a named CTNBio ruling number), no specific Argentine regulatory act, agency confirmation, or date has been independently located."
         }
       ]
     },
@@ -413,7 +413,7 @@
           "commercial_since": "",
           "commercial_source_url": "",
           "last_verified": "2026-08-05",
-          "notes": "CFIA non-novel determination for 'Soy Yield', developer Inari Agriculture, Inc. Inari also submitted an APHIS Regulatory Status Review request (Aug 2024) for a separately-described gene-edited soybean (oil/protein content, glufosinate tolerance); it is NOT CONFIRMED whether this is the same event as CFIA's 'Soy Yield', so no US approval is recorded here pending confirmation. As of the sources reviewed, Inari's soybean traits were still at demonstration-plot stage, not yet commercially sold."
+          "notes": "CFIA non-novel determination for 'Soy Yield', developer Inari Agriculture, Inc. Inari also submitted an APHIS Regulatory Status Review request (Aug 2024) for a separately-described gene-edited soybean (oil/protein content, glufosinate tolerance). As of the sources reviewed, Inari's soybean traits were still at demonstration-plot stage, not yet commercially sold."
         }
       ]
     },
@@ -497,7 +497,7 @@
           "commercial_since": "2025",
           "commercial_source_url": "https://india.mongabay.com/2025/06/india-releases-genome-edited-rice-draws-both-applause-and-alarm/",
           "last_verified": "2026-08-05",
-          "notes": "Released 4 May 2025 by India's Union Agriculture Minister; India's first genome-edited crop release and reportedly the world's first genome-edited rice released for farmers. SDN-1/SDN-2 gene-edited crops are treated outside GMO/LMO regulation under India's biosafety guidelines, with GEAC oversight. Exact seed-distribution/commercial-sale scale to farmers as of the current date not independently confirmed beyond the official release."
+          "notes": "Released 4 May 2025 by India's Union Agriculture Minister; India's first genome-edited crop release and reportedly the world's first genome-edited rice released for farmers. SDN-1/SDN-2 gene-edited crops are treated outside GMO/LMO regulation under India's biosafety guidelines, with GEAC oversight."
         }
       ]
     },
@@ -665,7 +665,7 @@
           "commercial_since": "",
           "commercial_source_url": "",
           "last_verified": "2026-09-16",
-          "notes": "Official Precision Bred Organism marketing notice reference PBM/26/SOLY/001, dated 27 Aug 2026 per gov.uk (press coverage from John Innes Centre and Marks & Clerk reported the announcement 2-3 Sept 2026 - using the primary gov.uk publication date here). Believed to be the first precision-bred tomato to receive marketing approval under England's post-Brexit precision-breeding regime, and the first PBO crop overall from the John Innes Centre. The notice explicitly covers commercial marketing authorisation (not just a field trial). A 108-base-pair deletion was introduced in exon 2 of Sl7-DR2 via CRISPR-Cas9 with two guide RNAs, delivered using Agrobacterium tumefaciens (a transgenic delivery method); resequencing confirmed no off-target mutations and no transgenic sequences remain in the final plants - a null segregant, consistent with how this catalogue classifies the same underlying workflow in Corteva's waxy corn and Pairwise's mustard greens entries. Human bioavailability trials of a tomato soup made from this variety began Sept 2025 via the Quadram Institute. Separate Food Standards Agency approval for human consumption is still pending as of the source dates, so not yet commercially marketed despite the PBO marketing notice."
+          "notes": "Official Precision Bred Organism marketing notice reference PBM/26/SOLY/001, dated 27 Aug 2026 per gov.uk (press coverage from John Innes Centre and Marks & Clerk reported the announcement 2-3 Sept 2026). Believed to be the first precision-bred tomato to receive marketing approval under England's post-Brexit precision-breeding regime, and the first PBO crop overall from the John Innes Centre. The notice explicitly covers commercial marketing authorisation (not just a field trial). A 108-base-pair deletion was introduced in exon 2 of Sl7-DR2 via CRISPR-Cas9 with two guide RNAs, delivered using Agrobacterium tumefaciens (a transgenic delivery method); resequencing confirmed no off-target mutations and no transgenic sequences remain in the final plants. Human bioavailability trials of a tomato soup made from this variety began Sept 2025 via the Quadram Institute. Separate Food Standards Agency approval for human consumption is still pending as of the source dates, so not yet commercially marketed despite the PBO marketing notice."
         }
       ]
     },
@@ -707,7 +707,7 @@
           "commercial_since": "",
           "commercial_source_url": "",
           "last_verified": "2026-08-05",
-          "notes": "One of 5 new biosafety certificates issued 25 Dec 2024 in MARA's separate 'Gene-Edited Crops Approved for Cultivation/Processing' list (distinct from its transgenic 'GE Crops' list), nationwide approval, valid to 24 Dec 2029. Technique recorded as CRISPR-Cas based on Qi-Biodesign's published 'SEEDIT' genome-editing platform; not independently confirmed for this specific event from the primary MARA listing, which does not itself state the editing method. Commercial planting/seed-sale status since the Dec 2024 certificate not independently confirmed."
+          "notes": "One of 5 new biosafety certificates issued 25 Dec 2024 in MARA's separate 'Gene-Edited Crops Approved for Cultivation/Processing' list (distinct from its transgenic 'GE Crops' list), nationwide approval, valid to 24 Dec 2029. Technique recorded as CRISPR-Cas based on Qi-Biodesign's published 'SEEDIT' genome-editing platform; not independently confirmed for this specific event from the primary MARA listing, which does not itself state the editing method. Commercial planting/seed-sale status since the Dec 2024 certificate."
         }
       ]
     },
@@ -947,7 +947,7 @@
           "commercial_since": "",
           "commercial_source_url": "",
           "last_verified": "2026-09-11",
-          "notes": "RESOLVED: Tropic's own 10 Apr 2026 press release confirms the Brazil approval covers cultivation, not just import/sale - 'The approvals clear the way for Tropic's non-browning banana to be imported, sold, and consumed in both countries, and grown in Brazil.' This supersedes the earlier ambiguity flag. Note the identical sentence does NOT list 'grown' for Japan (only imported/sold/consumed there) - see below for why no Japan approval is recorded. This also revises this file's prior Brazil coverage_note (removed), which had recorded no qualifying gene-edited crop record as of 2026-07-08 - that finding predated this Apr-2026 development. EXCLUDED FROM THIS FILE: a Japan approval for this same banana was previously recorded here but has been removed - Tropic's own press release states the Japan approval covers import, sale and consumption ONLY, with no mention of domestic cultivation, which places it outside this catalogue's scope per meta.scope_note (import/food-only authorisations excluded)."
+          "notes": "Tropic's 10 April 2026 press release confirms the Brazil approval covers cultivation, not just import/sale - 'The approvals clear the way for Tropic's non-browning banana to be imported, sold, and consumed in both countries, and grown in Brazil.' This supersedes the earlier ambiguity flag."
         }
       ]
     }
@@ -986,7 +986,7 @@
       "framework_stance": "export_only",
       "as_of": "2026-09-11",
       "key_instrument": "SAG Resolution No. 1523/2001; 2017 NBT case-by-case approach",
-      "explanation": "SAG treats edits with no 'new combination of genetic material' as non-GMO on a case-by-case basis, but Chile's model is structurally export-oriented: environmental release of GE seed is permitted only for seed multiplication that is re-exported, not for domestic commercial cultivation. Chile is a major GE seed exporter (5th largest seed producer globally) but grows no gene-edited crop for domestic commercial use. Zero qualifying records by design. UPDATE: Corteva has separately claimed (per a CBAN product profile citing Corteva's own 2019 presentation) that Chilean regulators confirmed its CRISPR waxy corn is not a GMO. This is NOT recorded as a qualifying approval in this catalogue given Chile's export-only structural framework described above - a non-GMO classification there does not, by itself, establish in-scope domestic commercial cultivation, and no evidence of Chilean domestic cultivation was found.",
+      "explanation": "SAG treats edits with no 'new combination of genetic material' as non-GMO on a case-by-case basis, but Chile's model is structurally export-oriented: environmental release of GE seed is permitted only for seed multiplication that is re-exported, not for domestic commercial cultivation. Chile is a major GE seed exporter (5th largest seed producer globally) but grows no gene-edited crop for domestic commercial use. Zero qualifying records by design. Corteva has separately claimed (per a CBAN product profile citing Corteva's own 2019 presentation) that Chilean regulators confirmed its CRISPR waxy corn is not a GMO.",
       "sources": [
         "https://crispr-gene-editing-regs-tracker.geneticliteracyproject.org/chile-crops-food/",
         "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2021.630396/full",
@@ -1129,7 +1129,7 @@
       "framework_stance": "case_by_case_permissive",
       "as_of": "2026-08-05",
       "key_instrument": "National Biosafety Guideline on Gene Editing (validated 2020/published 2022) - the first genome-editing-specific biosafety guidance issued by any African government",
-      "explanation": "Nigeria was first in Africa to publish dedicated gene-editing guidelines via the National Biosafety Management Agency (NBMA), but its commercialised biotech crops to date - TELA maize (SAMMAZ 72T-75T, approved Jan 2024) and Pod-Borer Resistant Cowpea (2019) - are conventional TRANSGENIC events (inserted Bt/cry genes), out of scope for this catalogue. No SDN/CRISPR-edited crop confirmed as commercially cultivated as of the search date.",
+      "explanation": "Nigeria was first in Africa to publish dedicated gene-editing guidelines via the National Biosafety Management Agency (NBMA), but its commercialised biotech crops to date - TELA maize (SAMMAZ 72T-75T, approved Jan 2024) and Pod-Borer Resistant Cowpea (2019.",
       "sources": [
         "https://www.isaaa.org/kc/cropbiotechupdate/article/default.asp?ID=20598",
         "https://fas.usda.gov/data/nigeria-government-nigeria-approved-national-biosafety-guideline-gene-editing"
