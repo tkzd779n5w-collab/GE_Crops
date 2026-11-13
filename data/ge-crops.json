@@ -14,8 +14,7 @@
       "approvals.commercial_since": "Year (or date) the crop was first grown/marketed in THIS country. Blank if not yet on-market or unknown.",
       "approvals.source_type / decision_source_type": "primary_regulatory | gain_report | bch | developer | news",
       "coverage_notes": "Top-level array recording jurisdictions searched that yielded NO qualifying crop records, so that a confirmed absence is distinguishable from an unsearched country. framework_stance summarises the regulatory posture (permissive | case_by_case_permissive | export_only | restrictive | moratorium_with_emerging_carveout | constitutional_constraint_with_carveout | prohibition).",
-      "location": "Added for mapping purposes (not in the original source dataset). Approximate coordinates of the developer's headquarters/origin city, used to place a single point marker per innovation. Not the precise field/cultivation site.",
-      "developer.group": "Added for mapping purposes (not in the original source dataset). A shared key for products from the same company. Markers with the same key and location are drawn as one grouped marker when zoomed out, and fanned out with arrows when zoomed in. Currently set for Tropic Biosciences only."
+      "location": "Added for mapping purposes (not in the original source dataset). Approximate coordinates of the developer's headquarters/origin city, used to place a single point marker per innovation. Not the precise field/cultivation site."
     }
   },
   "innovations": [
@@ -900,7 +899,6 @@
       },
       "developer": {
         "name": "Tropic Biosciences",
-        "group": "tropic-biosciences",
         "country": "United Kingdom",
         "country_iso": "GB",
         "type": "company"

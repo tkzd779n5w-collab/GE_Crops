@@ -97,14 +97,18 @@ function makeMarkerIcon(color) {
 let activeSchemeKey = 'technique';
 const markersData = [];
 
-// Several products from one company share a location. Zoomed out they are
-// drawn as one pie marker with a count; once zoomed in to SPREAD_ZOOM they
-// fan out around the true location, each joined to it by an arrow.
+// Any markers whose on-screen positions land within CLUSTER_PX of each other
+// are treated as overlapping, regardless of which developer they belong to.
+// Zoomed out, an overlapping set draws as one pie marker with a count; once
+// zoomed in to SPREAD_ZOOM it fans out, each member joined by an arrow back
+// to its own true coordinate (several members sharing an exact coordinate —
+// the common case of one company's products at one HQ — share one dot).
+const CLUSTER_PX = 24;
 const SPREAD_ZOOM = 6;
 const SPREAD_RADIUS_PX = 62;
 const demoMode = new URLSearchParams(window.location.search).get('demo') === 'grouping';
 const groupLayer = L.layerGroup().addTo(map);
-const groupsByKey = {};
+let legendHasClusters = false;
 
 function makeGroupIcon(colors, count) {
   const step = 360 / colors.length;
@@ -133,73 +137,120 @@ function makeArrowIcon(deg) {
   });
 }
 
+// Groups currently-visible entries by on-screen proximity at the current
+// zoom (union-find over pairwise pixel distance), so any markers that would
+// visually overlap end up in the same cluster — not just ones flagged as
+// related in the data.
+function clusterVisibleEntries() {
+  const entries = markersData.filter((e) => e.yearVisible);
+  const parent = entries.map((_, i) => i);
+  function find(i) { while (parent[i] !== i) i = parent[i]; return i; }
+  function union(i, j) {
+    const a = find(i), b = find(j);
+    if (a !== b) parent[a] = b;
+  }
+  const points = entries.map((e) => map.latLngToLayerPoint([e.innovation.location.lat, e.innovation.location.lng]));
+  for (let i = 0; i < entries.length; i++) {
+    for (let j = i + 1; j < entries.length; j++) {
+      if (points[i].distanceTo(points[j]) < CLUSTER_PX) union(i, j);
+    }
+  }
+  const clusters = new Map();
+  entries.forEach((e, i) => {
+    const root = find(i);
+    if (!clusters.has(root)) clusters.set(root, []);
+    clusters.get(root).push(e);
+  });
+  return Array.from(clusters.values());
+}
+
+function clusterCentroid(cluster) {
+  const lat = cluster.reduce((sum, e) => sum + e.innovation.location.lat, 0) / cluster.length;
+  const lng = cluster.reduce((sum, e) => sum + e.innovation.location.lng, 0) / cluster.length;
+  return [lat, lng];
+}
+
 // Rebuilds everything drawn on the map from the current zoom, year filter and
-// colour scheme: plain markers for single products, a pie for a collapsed
-// group, or a fan of markers with arrows for an expanded group.
+// colour scheme: plain markers for anything on its own, a pie for a
+// collapsed overlapping cluster, or a fan of markers with arrows for an
+// expanded one.
 function refreshMarkers() {
   groupLayer.clearLayers();
   const scheme = COLOR_SCHEMES[activeSchemeKey];
   const zoom = map.getZoom();
+  const clusters = clusterVisibleEntries();
+  legendHasClusters = clusters.some((c) => c.length > 1);
 
-  markersData.forEach((entry) => {
-    if (entry.group) return;
-    const onMap = map.hasLayer(entry.marker);
-    if (entry.yearVisible && !onMap) entry.marker.addTo(map);
-    if (!entry.yearVisible && onMap) map.removeLayer(entry.marker);
-  });
+  clusters.forEach((cluster) => {
+    cluster.forEach((e) => e.marker.setLatLng([e.innovation.location.lat, e.innovation.location.lng]));
 
-  Object.values(groupsByKey).forEach((g) => {
-    const visible = g.entries.filter((e) => e.yearVisible);
-    g.entries.forEach((e) => {
-      if (map.hasLayer(e.marker)) map.removeLayer(e.marker);
-      e.marker.setLatLng(g.anchor);
-    });
-    if (visible.length === 0) return;
-
-    if (visible.length === 1) {
-      visible[0].marker.addTo(groupLayer);
+    if (cluster.length === 1) {
+      cluster[0].marker.addTo(groupLayer);
       return;
     }
 
+    const centroid = clusterCentroid(cluster);
+
     if (zoom < SPREAD_ZOOM) {
-      const colors = visible.map((e) => colorForScheme(scheme, e.innovation));
-      const names = visible.map((e) => escapeHtml(e.innovation.crop.common_name)).join(', ');
-      const pie = L.marker(g.anchor, { icon: makeGroupIcon(colors, visible.length), zIndexOffset: 1000 });
-      pie.bindTooltip(`${escapeHtml(g.name)}<br><span class="tooltip-subtitle">${visible.length} products: ${names}<br>Click to zoom in</span>`, {
+      const colors = cluster.map((e) => colorForScheme(scheme, e.innovation));
+      const names = cluster.map((e) => escapeHtml(`${e.innovation.developer.name} — ${e.innovation.crop.common_name}`)).join('<br>');
+      const pie = L.marker(centroid, { icon: makeGroupIcon(colors, cluster.length), zIndexOffset: 1000 });
+      pie.bindTooltip(`<span class="tooltip-subtitle">${cluster.length} nearby products:<br>${names}<br>Click to zoom in</span>`, {
         direction: 'top', offset: [0, -14], className: 'ge-label'
       });
       pie.on('click', (e) => {
         L.DomEvent.stopPropagation(e);
-        map.flyTo(g.anchor, Math.max(SPREAD_ZOOM, map.getZoom()));
+        map.flyTo(centroid, Math.max(SPREAD_ZOOM, map.getZoom()));
       });
       pie.addTo(groupLayer);
       return;
     }
 
-    const anchorPt = map.latLngToLayerPoint(g.anchor);
-    const n = visible.length;
+    const centroidPt = map.latLngToLayerPoint(centroid);
+    const n = cluster.length;
     const stepDeg = Math.min(70, 280 / n);
-    visible.forEach((e, i) => {
+    const trueDots = new Map();
+
+    cluster.forEach((e, i) => {
       const ang = (-90 + (i - (n - 1) / 2) * stepDeg) * Math.PI / 180;
       const dx = Math.cos(ang);
       const dy = Math.sin(ang);
-      const memberPt = L.point(anchorPt.x + dx * SPREAD_RADIUS_PX, anchorPt.y + dy * SPREAD_RADIUS_PX);
+      const memberPt = L.point(centroidPt.x + dx * SPREAD_RADIUS_PX, centroidPt.y + dy * SPREAD_RADIUS_PX);
       e.marker.setLatLng(map.layerPointToLatLng(memberPt));
-      // Arrow runs from just inside the member marker to just outside the anchor dot.
-      const lineStart = L.point(anchorPt.x + dx * (SPREAD_RADIUS_PX - 11), anchorPt.y + dy * (SPREAD_RADIUS_PX - 11));
-      const tip = L.point(anchorPt.x + dx * 12, anchorPt.y + dy * 12);
-      const lineEnd = L.point(anchorPt.x + dx * 18, anchorPt.y + dy * 18);
+
+      // Arrow runs from just outside the member marker to just outside its
+      // own true coordinate, not necessarily the cluster centroid — members
+      // that share an exact coordinate end up pointing at the same spot.
+      const truePt = map.latLngToLayerPoint([e.innovation.location.lat, e.innovation.location.lng]);
+      const vx = truePt.x - memberPt.x;
+      const vy = truePt.y - memberPt.y;
+      const dist = Math.hypot(vx, vy) || 1;
+      const ux = vx / dist;
+      const uy = vy / dist;
+      const lineStart = L.point(memberPt.x + ux * 11, memberPt.y + uy * 11);
+      const lineEnd = L.point(truePt.x - ux * 12, truePt.y - uy * 12);
       L.polyline([map.layerPointToLatLng(lineStart), map.layerPointToLatLng(lineEnd)],
         { color: '#37474f', weight: 2, interactive: false }).addTo(groupLayer);
-      const deg = Math.atan2(-dy, -dx) * 180 / Math.PI; // pointing back towards the anchor
-      L.marker(map.layerPointToLatLng(tip), { icon: makeArrowIcon(deg), interactive: false, keyboard: false }).addTo(groupLayer);
+      const arrowPt = L.point(truePt.x - ux * 18, truePt.y - uy * 18);
+      const deg = Math.atan2(uy, ux) * 180 / Math.PI;
+      L.marker(map.layerPointToLatLng(arrowPt), { icon: makeArrowIcon(deg), interactive: false, keyboard: false }).addTo(groupLayer);
       e.marker.addTo(groupLayer);
+
+      const key = `${e.innovation.location.lat},${e.innovation.location.lng}`;
+      if (!trueDots.has(key)) trueDots.set(key, { latlng: [e.innovation.location.lat, e.innovation.location.lng], members: [] });
+      trueDots.get(key).members.push(e);
     });
-    const dot = L.marker(g.anchor, { icon: anchorIcon, zIndexOffset: 800, keyboard: false });
-    dot.bindTooltip(`${escapeHtml(g.name)}<br><span class="tooltip-subtitle">True location of all ${n} products</span>`, {
-      direction: 'bottom', offset: [0, 8], className: 'ge-label'
+
+    trueDots.forEach((dot) => {
+      const marker = L.marker(dot.latlng, { icon: anchorIcon, zIndexOffset: 800, keyboard: false });
+      const label = dot.members.length > 1
+        ? `True location of ${dot.members.length} products`
+        : `True location: ${escapeHtml(dot.members[0].innovation.developer.name)}`;
+      marker.bindTooltip(`<span class="tooltip-subtitle">${label}</span>`, {
+        direction: 'bottom', offset: [0, 8], className: 'ge-label'
+      });
+      marker.addTo(groupLayer);
     });
-    dot.addTo(groupLayer);
   });
 }
 
@@ -223,9 +274,8 @@ function updateLegend() {
   if (usesDefault) {
     items.push(`<div class="legend-item" title="${escapeHtml('No market status was reported, or it didn’t match any category above.')}"><span class="swatch" style="background:${DEFAULT_COLOR}"></span>Other / unknown</div>`);
   }
-  const hasGroups = Object.values(groupsByKey).some((g) => g.entries.length > 1);
-  const note = hasGroups
-    ? '<div class="legend-note"><span class="legend-pie"></span>Several products from one company. Click to zoom in and spread them out.</div>'
+  const note = legendHasClusters
+    ? '<div class="legend-note"><span class="legend-pie"></span>Nearby markers are grouped when zoomed out. Click to zoom in and spread them out.</div>'
     : '';
   document.getElementById('legend').innerHTML = `<div class="legend-title">${escapeHtml(scheme.label)}</div>${items.join('')}${note}`;
 }
@@ -470,16 +520,7 @@ Promise.all([
         openDetailPanel(innovation);
       });
 
-      const entry = { marker, innovation, yearVisible: true, group: null };
-      const groupKey = innovation.developer && innovation.developer.group;
-      if (groupKey) {
-        if (!groupsByKey[groupKey]) {
-          groupsByKey[groupKey] = { anchor: [loc.lat, loc.lng], name: innovation.developer.name, entries: [] };
-        }
-        groupsByKey[groupKey].entries.push(entry);
-        entry.group = groupKey;
-      }
-      markersData.push(entry);
+      markersData.push({ marker, innovation, yearVisible: true });
     });
 
     applyScheme(activeSchemeKey);
