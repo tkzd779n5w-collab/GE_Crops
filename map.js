@@ -486,13 +486,6 @@ function closeDetailPanel() {
 detailClose.addEventListener('click', closeDetailPanel);
 map.on('click', closeDetailPanel);
 
-if (demoMode) {
-  const banner = document.createElement('div');
-  banner.className = 'demo-banner';
-  banner.textContent = 'Demo mode: grouped markers prototype (includes a demo-only product)';
-  document.body.appendChild(banner);
-}
-
 Promise.all([
   fetch('data/ge-crops.json').then((r) => r.json()),
   demoMode ? fetch('data/demo-grouping.json').then((r) => r.json()) : Promise.resolve({ innovations: [] })
