@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "note": "Prototype data for the grouped-marker demo only. The map loads this file only when the page address ends in ?demo=grouping. It is not part of the published dataset.",
+    "created": "2026-11-13"
+  },
+  "innovations": [
+    {
+      "id": "tropic-reduced-browning-potato-gb",
+      "innovation_name": "Reduced-browning potato (GEiGS stu-MIR398a line)",
+      "location": { "lat": 52.6309, "lng": 1.2974, "place": "Norwich, England, UK (approximate — Tropic Biosciences HQ, Norwich Research Park)" },
+      "crop": {
+        "common_name": "Potato",
+        "species": "Solanum tuberosum"
+      },
+      "trait": {
+        "description": "Reduced enzymatic browning of tubers through tuber-specific silencing of the polyphenol oxidase-5 (Ppo5) gene. The potato microRNA gene stu-MIR398a is edited so that it produces a miRNA that targets Ppo5 transcripts (Tropic's GEiGS platform, which redirects the plant's own RNA interference using small edits to non-coding genes).",
+        "category": "consumer_quality"
+      },
+      "edit": {
+        "technique": "CRISPR-Cas9 (GEiGS platform)",
+        "sdn_class": "SDN-2",
+        "transgene_status": "null_segregant",
+        "transgene_status_source": "https://www.aphis.usda.gov/biotechnology/downloads/confirmation-response/21-141-01cr-response-signed.pdf"
+      },
+      "developer": {
+        "name": "Tropic Biosciences",
+        "group": "tropic-biosciences",
+        "country": "United Kingdom",
+        "country_iso": "GB",
+        "type": "company"
+      },
+      "approvals": [
+        {
+          "country": "United States",
+          "country_iso": "US",
+          "regulatory_body": "USDA-APHIS (Biotechnology Regulatory Services)",
+          "approval_type": "commercial",
+          "mechanism": "exemption",
+          "decision_date": "2021-10-20",
+          "decision_source_url": "https://www.aphis.usda.gov/biotechnology/downloads/confirmation-response/21-141-01cr-response-signed.pdf",
+          "decision_source_type": "primary_regulatory",
+          "commercial_status": "unknown",
+          "commercial_since": "",
+          "commercial_source_url": "",
+          "last_verified": "2026-11-13",
+          "notes": "USDA-APHIS confirmation of exemption, case 21-141-01cr, signed 20 Oct 2021 by APHIS Deputy Administrator Bernadette Juarez in reply to Tropic's request of 26 Aug 2021 (Tropic's own June 2022 press release says it submitted in May 2021; the letter's dates are used here). The letter describes a potato line that 'will be modified' for altered tuber quality, so it confirms a planned modification rather than a finished, marketed product. The edit uses CRISPR-Cas9 with an externally provided repair template to change the stu-MIR398a gene, so it is recorded as SDN-2; the resulting miRNA silences Ppo5 in tubers. Exogenous DNA was to be inserted to make the edit and eliminated from the final plant (a null segregant), with the verification methods described but still planned. APHIS exempted it under 7 CFR 340.1(c)(2), on the condition that Ppo5 silencing does not occur in leaves and flowers and that no new traits arise. No evidence of commercial sale was found. This is a real Tropic product used as the second product in the grouped-marker prototype, and it is held in this demo file rather than the published dataset."
+        }
+      ]
+    }
+  ]
+}

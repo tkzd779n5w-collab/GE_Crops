@@ -14,7 +14,8 @@
       "approvals.commercial_since": "Year (or date) the crop was first grown/marketed in THIS country. Blank if not yet on-market or unknown.",
       "approvals.source_type / decision_source_type": "primary_regulatory | gain_report | bch | developer | news",
       "coverage_notes": "Top-level array recording jurisdictions searched that yielded NO qualifying crop records, so that a confirmed absence is distinguishable from an unsearched country. framework_stance summarises the regulatory posture (permissive | case_by_case_permissive | export_only | restrictive | moratorium_with_emerging_carveout | constitutional_constraint_with_carveout | prohibition).",
-      "location": "Added for mapping purposes (not in the original source dataset). Approximate coordinates of the developer's headquarters/origin city, used to place a single point marker per innovation. Not the precise field/cultivation site."
+      "location": "Added for mapping purposes (not in the original source dataset). Approximate coordinates of the developer's headquarters/origin city, used to place a single point marker per innovation. Not the precise field/cultivation site.",
+      "developer.group": "Added for mapping purposes (not in the original source dataset). A shared key for products from the same company. Markers with the same key and location are drawn as one grouped marker when zoomed out, and fanned out with arrows when zoomed in. Currently set for Tropic Biosciences only."
     }
   },
   "innovations": [
@@ -899,6 +900,7 @@
       },
       "developer": {
         "name": "Tropic Biosciences",
+        "group": "tropic-biosciences",
         "country": "United Kingdom",
         "country_iso": "GB",
         "type": "company"
@@ -917,7 +919,7 @@
           "commercial_since": "2025",
           "commercial_source_url": "https://tropic.bio/04-2026-japan-brazil-approvals/",
           "last_verified": "2026-10-13",
-          "notes": "SOURCE UPGRADED to the signed APHIS letter itself (Regulatory Status Review 22-238-01rsr, signed 14 Nov 2023 by APHIS Deputy Administrator Bernadette Juarez; previously cited a secondary blog post). The letter reviewed a banana with loss of function of the polyphenol oxidase-2 (PPO2) gene made by CRISPR-Cas9, and states it also contains 'a selectable marker claimed as CBI', and found it is not subject to regulation under 7 CFR part 340. NOTE ON TRANSGENE STATUS: this conflicts with the UK precision breeding notice (reference PBM/26/MUAC/001), which describes line TRB011002 as non-transgenic with no plasmid DNA integrated. They may be different lines, so the innovation-level transgene status is left as unknown. Tropic states it has regulatory determinations, notifications or exemptions in 11 countries in total; only some are listed as separate approvals here. COMMERCIAL STATUS CAVEAT: Tropic's April 2026 press release says the banana 'launched commercially in 2025' without naming a country, while a March 2026 AgFunderNews report describes consumer launches in the US and Canada as planned for 2026, so 'marketed' in the US rests on the company's statement alone."
+          "notes": "SOURCE UPGRADED to the signed APHIS letter itself (Regulatory Status Review 22-238-01rsr, signed 14 Nov 2023 by APHIS Deputy Administrator Bernadette Juarez; previously cited a secondary blog post). The letter reviewed a banana with loss of function of the polyphenol oxidase-2 (PPO2) gene made by CRISPR-Cas9, and states it also contains 'a selectable marker claimed as CBI', and found it is not subject to regulation under 7 CFR part 340. NOTE ON TRANSGENE STATUS: this conflicts with the UK precision breeding notice (reference PBM/26/MUAC/001), which describes line TRB011002 as non-transgenic with no plasmid DNA integrated. They may be different lines, so the innovation-level transgene status is left as unknown. A second, earlier US decision points the same way: APHIS confirmation 21-356-01cr (signed 29 Mar 2022) found that a Tropic banana with a frameshift in a single PPO allele, made by transient expression of exogenous DNA that was screened out, is exempt under 7 CFR 340.1(b)(1). So Tropic has at least two US decisions on bananas (March 2022 exemption, November 2023 status review), and only the later one mentions a selectable marker. Tropic states it has regulatory determinations, notifications or exemptions in 11 countries in total; only some are listed as separate approvals here. COMMERCIAL STATUS CAVEAT: Tropic's April 2026 press release says the banana 'launched commercially in 2025' without naming a country, while a March 2026 AgFunderNews report describes consumer launches in the US and Canada as planned for 2026, so 'marketed' in the US rests on the company's statement alone."
         },
         {
           "country": "Philippines",

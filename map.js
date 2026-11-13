@@ -97,6 +97,114 @@ function makeMarkerIcon(color) {
 let activeSchemeKey = 'technique';
 const markersData = [];
 
+// Several products from one company share a location. Zoomed out they are
+// drawn as one pie marker with a count; once zoomed in to SPREAD_ZOOM they
+// fan out around the true location, each joined to it by an arrow.
+const SPREAD_ZOOM = 6;
+const SPREAD_RADIUS_PX = 62;
+const demoMode = new URLSearchParams(window.location.search).get('demo') === 'grouping';
+const groupLayer = L.layerGroup().addTo(map);
+const groupsByKey = {};
+
+function makeGroupIcon(colors, count) {
+  const step = 360 / colors.length;
+  const stops = colors.map((c, i) => `${c} ${i * step}deg ${(i + 1) * step}deg`).join(', ');
+  return L.divIcon({
+    className: 'ge-group-pie',
+    html: `<div class="pie" style="background:conic-gradient(${stops})"><span>${count}</span></div>`,
+    iconSize: [34, 34],
+    iconAnchor: [17, 17]
+  });
+}
+
+const anchorIcon = L.divIcon({
+  className: 'ge-anchor',
+  html: '<span></span>',
+  iconSize: [12, 12],
+  iconAnchor: [6, 6]
+});
+
+function makeArrowIcon(deg) {
+  return L.divIcon({
+    className: 'ge-arrow',
+    html: `<svg width="16" height="16" viewBox="0 0 16 16" style="transform:rotate(${deg}deg)"><path d="M2 2 L14 8 L2 14 Z" fill="#37474f"/></svg>`,
+    iconSize: [16, 16],
+    iconAnchor: [8, 8]
+  });
+}
+
+// Rebuilds everything drawn on the map from the current zoom, year filter and
+// colour scheme: plain markers for single products, a pie for a collapsed
+// group, or a fan of markers with arrows for an expanded group.
+function refreshMarkers() {
+  groupLayer.clearLayers();
+  const scheme = COLOR_SCHEMES[activeSchemeKey];
+  const zoom = map.getZoom();
+
+  markersData.forEach((entry) => {
+    if (entry.group) return;
+    const onMap = map.hasLayer(entry.marker);
+    if (entry.yearVisible && !onMap) entry.marker.addTo(map);
+    if (!entry.yearVisible && onMap) map.removeLayer(entry.marker);
+  });
+
+  Object.values(groupsByKey).forEach((g) => {
+    const visible = g.entries.filter((e) => e.yearVisible);
+    g.entries.forEach((e) => {
+      if (map.hasLayer(e.marker)) map.removeLayer(e.marker);
+      e.marker.setLatLng(g.anchor);
+    });
+    if (visible.length === 0) return;
+
+    if (visible.length === 1) {
+      visible[0].marker.addTo(groupLayer);
+      return;
+    }
+
+    if (zoom < SPREAD_ZOOM) {
+      const colors = visible.map((e) => colorForScheme(scheme, e.innovation));
+      const names = visible.map((e) => escapeHtml(e.innovation.crop.common_name)).join(', ');
+      const pie = L.marker(g.anchor, { icon: makeGroupIcon(colors, visible.length), zIndexOffset: 1000 });
+      pie.bindTooltip(`${escapeHtml(g.name)}<br><span class="tooltip-subtitle">${visible.length} products: ${names}<br>Click to zoom in</span>`, {
+        direction: 'top', offset: [0, -14], className: 'ge-label'
+      });
+      pie.on('click', (e) => {
+        L.DomEvent.stopPropagation(e);
+        map.flyTo(g.anchor, Math.max(SPREAD_ZOOM, map.getZoom()));
+      });
+      pie.addTo(groupLayer);
+      return;
+    }
+
+    const anchorPt = map.latLngToLayerPoint(g.anchor);
+    const n = visible.length;
+    const stepDeg = Math.min(70, 280 / n);
+    visible.forEach((e, i) => {
+      const ang = (-90 + (i - (n - 1) / 2) * stepDeg) * Math.PI / 180;
+      const dx = Math.cos(ang);
+      const dy = Math.sin(ang);
+      const memberPt = L.point(anchorPt.x + dx * SPREAD_RADIUS_PX, anchorPt.y + dy * SPREAD_RADIUS_PX);
+      e.marker.setLatLng(map.layerPointToLatLng(memberPt));
+      // Arrow runs from just inside the member marker to just outside the anchor dot.
+      const lineStart = L.point(anchorPt.x + dx * (SPREAD_RADIUS_PX - 11), anchorPt.y + dy * (SPREAD_RADIUS_PX - 11));
+      const tip = L.point(anchorPt.x + dx * 12, anchorPt.y + dy * 12);
+      const lineEnd = L.point(anchorPt.x + dx * 18, anchorPt.y + dy * 18);
+      L.polyline([map.layerPointToLatLng(lineStart), map.layerPointToLatLng(lineEnd)],
+        { color: '#37474f', weight: 2, interactive: false }).addTo(groupLayer);
+      const deg = Math.atan2(-dy, -dx) * 180 / Math.PI; // pointing back towards the anchor
+      L.marker(map.layerPointToLatLng(tip), { icon: makeArrowIcon(deg), interactive: false, keyboard: false }).addTo(groupLayer);
+      e.marker.addTo(groupLayer);
+    });
+    const dot = L.marker(g.anchor, { icon: anchorIcon, zIndexOffset: 800, keyboard: false });
+    dot.bindTooltip(`${escapeHtml(g.name)}<br><span class="tooltip-subtitle">True location of all ${n} products</span>`, {
+      direction: 'bottom', offset: [0, 8], className: 'ge-label'
+    });
+    dot.addTo(groupLayer);
+  });
+}
+
+map.on('zoomend', refreshMarkers);
+
 const legend = L.control({ position: 'bottomleft' });
 legend.onAdd = function () {
   const div = L.DomUtil.create('div', 'legend');
@@ -115,7 +223,11 @@ function updateLegend() {
   if (usesDefault) {
     items.push(`<div class="legend-item" title="${escapeHtml('No market status was reported, or it didn’t match any category above.')}"><span class="swatch" style="background:${DEFAULT_COLOR}"></span>Other / unknown</div>`);
   }
-  document.getElementById('legend').innerHTML = `<div class="legend-title">${escapeHtml(scheme.label)}</div>${items.join('')}`;
+  const hasGroups = Object.values(groupsByKey).some((g) => g.entries.length > 1);
+  const note = hasGroups
+    ? '<div class="legend-note"><span class="legend-pie"></span>Several products from one company. Click to zoom in and spread them out.</div>'
+    : '';
+  document.getElementById('legend').innerHTML = `<div class="legend-title">${escapeHtml(scheme.label)}</div>${items.join('')}${note}`;
 }
 
 function applyScheme(schemeKey, { showDescription = false } = {}) {
@@ -124,6 +236,7 @@ function applyScheme(schemeKey, { showDescription = false } = {}) {
   markersData.forEach(({ marker, innovation }) => {
     marker.setIcon(makeMarkerIcon(colorForScheme(scheme, innovation)));
   });
+  refreshMarkers();
   updateLegend();
   document.querySelectorAll('.filter-btn').forEach((btn) => {
     btn.classList.toggle('active', btn.dataset.scheme === schemeKey);
@@ -265,12 +378,10 @@ const playBtn = document.getElementById('play-btn');
 let playTimer = null;
 
 function applyYearFilter(year) {
-  markersData.forEach(({ marker, innovation }) => {
-    const visible = innovation.__year == null || innovation.__year <= year;
-    const onMap = map.hasLayer(marker);
-    if (visible && !onMap) marker.addTo(map);
-    if (!visible && onMap) map.removeLayer(marker);
+  markersData.forEach((entry) => {
+    entry.yearVisible = entry.innovation.__year == null || entry.innovation.__year <= year;
   });
+  refreshMarkers();
   yearLabel.textContent = year;
 }
 
@@ -325,16 +436,26 @@ function closeDetailPanel() {
 detailClose.addEventListener('click', closeDetailPanel);
 map.on('click', closeDetailPanel);
 
-fetch('data/ge-crops.json')
-  .then((r) => r.json())
-  .then((data) => {
+if (demoMode) {
+  const banner = document.createElement('div');
+  banner.className = 'demo-banner';
+  banner.textContent = 'Demo mode: grouped markers prototype (includes a demo-only product)';
+  document.body.appendChild(banner);
+}
+
+Promise.all([
+  fetch('data/ge-crops.json').then((r) => r.json()),
+  demoMode ? fetch('data/demo-grouping.json').then((r) => r.json()) : Promise.resolve({ innovations: [] })
+])
+  .then(([data, demo]) => {
+    data.innovations = data.innovations.concat(demo.innovations);
     data.innovations.forEach((innovation) => {
       const loc = innovation.location;
       if (!loc) return;
 
       innovation.__year = earliestYear(innovation);
 
-      const marker = L.marker([loc.lat, loc.lng], { icon: makeMarkerIcon(DEFAULT_COLOR) }).addTo(map);
+      const marker = L.marker([loc.lat, loc.lng], { icon: makeMarkerIcon(DEFAULT_COLOR) });
 
       const cropLabel = escapeHtml(`${innovation.crop.common_name} (${innovation.crop.species})`);
       const nameLabel = escapeHtml(humanize(innovation.innovation_name));
@@ -349,7 +470,16 @@ fetch('data/ge-crops.json')
         openDetailPanel(innovation);
       });
 
-      markersData.push({ marker, innovation });
+      const entry = { marker, innovation, yearVisible: true, group: null };
+      const groupKey = innovation.developer && innovation.developer.group;
+      if (groupKey) {
+        if (!groupsByKey[groupKey]) {
+          groupsByKey[groupKey] = { anchor: [loc.lat, loc.lng], name: innovation.developer.name, entries: [] };
+        }
+        groupsByKey[groupKey].entries.push(entry);
+        entry.group = groupKey;
+      }
+      markersData.push(entry);
     });
 
     applyScheme(activeSchemeKey);

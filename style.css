@@ -316,3 +316,33 @@ footer a {
   color: var(--muted);
   font-style: italic;
 }
+
+/* Grouped markers (several products from one company) */
+.ge-group-pie { background: none; border: none; }
+.ge-group-pie .pie {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 2px solid #fff; box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center; box-sizing: border-box;
+}
+.ge-group-pie .pie span {
+  width: 18px; height: 18px; border-radius: 50%; background: #fff; color: #222;
+  font: bold 11px/18px Arial, sans-serif; text-align: center;
+}
+.ge-anchor { background: none; border: none; }
+.ge-anchor span {
+  display: block; width: 12px; height: 12px; border-radius: 50%;
+  background: #37474f; border: 2px solid #fff; box-sizing: border-box;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+.ge-arrow { background: none; border: none; }
+.ge-arrow svg { display: block; }
+.legend-note { margin-top: 6px; max-width: 200px; font-size: 11px; color: #444; display: flex; gap: 6px; align-items: flex-start; }
+.legend-pie {
+  flex: none; width: 14px; height: 14px; border-radius: 50%; margin-top: 1px;
+  background: conic-gradient(#c0392b 0 50%, #2e7d32 50% 100%); border: 2px solid #fff; box-shadow: 0 0 2px rgba(0,0,0,0.5); box-sizing: border-box;
+}
+.demo-banner {
+  position: fixed; top: 8px; left: 50%; transform: translateX(-50%); z-index: 1200;
+  background: #fff3cd; color: #664d03; border: 1px solid #ffe69c; border-radius: 4px;
+  padding: 4px 10px; font: 12px Arial, sans-serif; pointer-events: none;
+}
